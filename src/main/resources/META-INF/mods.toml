@@ -1,0 +1,14 @@
+modLoader="javafml" # Which mod loader to use. Don't change this!
+# A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+loaderVersion="[28,)" # Which version of forge should this mod project work with? Don't change this! (28 is current forge version)
+
+[[mods]]
+modId="testmod" # The modid of your mod. This should match the MODID value in your project code and folder names!
+version="${file.jarVersion}" # The mod's version number - don't worry about changing this.
+displayName="Test Mod" # The mod's display name in the Forge Mods menu.
+diplayURL="http://www.idtech.com" # A URL displayed in the mod description
+credits="This mod developed by one or more awesome iD Tech students." # Credits for who worked on the mod.
+# The text description of what your mod does. Add text between the ``` ``` marks.
+description='''
+A mod to test things.
+'''
