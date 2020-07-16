@@ -3,6 +3,7 @@ package com.idtech;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -59,6 +60,11 @@ public class BaseMod {
         // Add item registry calls here.
         // event.getRegistry.register(<entity type>)
 
+    }
+
+    @SubscribeEvent
+    public static void registerBiomes(final RegistryEvent.Register<Biome> event){
+        BaseMod.LOGGER.info("Registering ");
     }
 
     /**
