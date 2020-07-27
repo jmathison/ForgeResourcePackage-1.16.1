@@ -1,5 +1,6 @@
 package com.idtech.block;
 
+import com.idtech.BaseMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
@@ -22,7 +23,7 @@ public class BlockUtils {
      * @return The constructed block with the specified parameters
      */
     public static Block createBasicBlock(String name, Material material, float hardness, float resistance, ToolType tool){
-        return new Block(Block.Properties.create(material).hardnessAndResistance(hardness, resistance).harvestTool(tool)).setRegistryName(name);
+        return new Block(Block.Properties.create(material).hardnessAndResistance(hardness, resistance).harvestTool(tool)).setRegistryName(BaseMod.MODID, name);
     }
 
     /**

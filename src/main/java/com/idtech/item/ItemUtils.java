@@ -1,5 +1,6 @@
 package com.idtech.item;
 
+import com.idtech.BaseMod;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -25,7 +26,7 @@ public class ItemUtils {
      * @return The built item.
      */
     public static Item buildBasicItem(String name, ItemGroup group){
-        return new Item(new Item.Properties().group(group)).setRegistryName(name);
+        return new Item(new Item.Properties().group(group)).setRegistryName(BaseMod.MODID, name);
     }
 
     /**
