@@ -9,7 +9,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.ToolType;
 
 /**
- * Utilities specific to creating blocks and doing things with blocks.
+ * Utilities specific to creating block and doing things with block.
  */
 public class BlockUtils {
 

@@ -14,15 +14,21 @@ import net.minecraftforge.common.ToolType;
 import java.util.Random;
 
 public class CoolStoneBlock extends Block {
-    public static Block INSTANCE = new CoolStoneBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(0.5f, 0.9f).harvestTool(ToolType.SHOVEL).tickRandomly()).setRegistryName("cool_stone");
+
+    //static instances for the registry
+    public static Block INSTANCE = new CoolStoneBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(0.5f, 0.9f).harvestTool(ToolType.SHOVEL).tickRandomly()).setRegistryName("coolstoneblock");
     public static Item ITEM = BlockUtils.createBlockItem(INSTANCE, ItemGroup.MISC);
 
+    //construuctor
     public CoolStoneBlock(Properties properties) {
         super(properties);
     }
 
+    //This method runs on a random tick.
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
+
+        //create an explosion based on the position of size 1
         worldIn.createExplosion(null, pos.getX(), pos.up().getY(), pos.getZ(), 1, Explosion.Mode.NONE);
     }
 }

@@ -3,7 +3,7 @@ modLoader="javafml" # Which mod loader to use. Don't change this!
 loaderVersion="[28,)" # Which version of forge should this mod project work with? Don't change this! (28 is current forge version)
 
 [[mods]]
-modId="testmod" # The modid of your mod. This should match the MODID value in your project code and folder names!
+modId="examplemod" # The modid of your mod. This should match the MODID value in your project code and folder names!
 version="${file.jarVersion}" # The mod's version number - don't worry about changing this.
 displayName="Test Mod" # The mod's display name in the Forge Mods menu.
 diplayURL="http://www.idtech.com" # A URL displayed in the mod description
