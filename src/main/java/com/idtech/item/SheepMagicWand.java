@@ -15,12 +15,15 @@ import net.minecraft.world.World;
 
 public class SheepMagicWand extends Item {
 
+    //static instance for registration
     public static Item INSTANCE = new SheepMagicWand(new Properties().group(ItemGroup.MISC)).setRegistryName(BaseMod.MODID, "sheepwand");
 
+    //constructor
     public SheepMagicWand(Properties properties) {
         super(properties);
     }
 
+    //on right click method called when the player clicks with it in the right hand
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
         //get held item for return status

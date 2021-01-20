@@ -31,7 +31,7 @@ public class TeleportRodItem extends Item {
         ItemStack itemstack = player.getHeldItem(hand);
 
         //get the block at cursor
-        BlockPos pos = Utils.getBlockAtCursor(player, 10,true);
+        BlockPos pos = Utils.getBlockAtCursor(player, 100,true);
 
         //if the position at cursor isn't null
         if(pos != null) {

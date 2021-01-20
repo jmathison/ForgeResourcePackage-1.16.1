@@ -1,6 +1,6 @@
 {
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "examplemod:item/coolsword"
+		"layer0": "examplemod:item/gelshovel"
 	}
 }

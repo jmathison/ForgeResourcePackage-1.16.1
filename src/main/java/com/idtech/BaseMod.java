@@ -2,6 +2,7 @@ package com.idtech;
 
 import com.idtech.block.*;
 import com.idtech.entity.ZomboBearEntity;
+import com.idtech.entity.ZomboBearRenderFactory;
 import com.idtech.entity.ZomboEntity;
 import com.idtech.entity.ZomboRenderFactory;
 import com.idtech.item.*;
@@ -87,15 +88,24 @@ public class BaseMod {
 //        event.getRegistry().register(structureGel);
 //        event.getRegistry().register(basicOre);
         BasicItems.registerItems(event);
+        ItemMod.registerItems(event);
 
         //Items
         event.getRegistry().register(FireWandItem.INSTANCE);
         event.getRegistry().register(LightningHammerItem.INSTANCE);
         event.getRegistry().register(TeleportRodItem.INSTANCE);
-        event.getRegistry().register(CoolSwordItem.INSTANCE);
         event.getRegistry().register(ZooSwordItem.INSTANCE);
         event.getRegistry().register(SheepMagicWand.INSTANCE);
         event.getRegistry().register(SqueakyBallItem.INSTANCE);
+
+//        event.getRegistry().register(GelSwordItem.INSTANCE);
+//        event.getRegistry().register(GelPickaxeItem.INSTANCE);
+//        event.getRegistry().register(GelAxeItem.INSTANCE);
+//        event.getRegistry().register(GelShovelItem.INSTANCE);
+//        event.getRegistry().register(GelHoeItem.INSTANCE);
+
+
+
 
         //Armor
         event.getRegistry().register(CustomArmorItem.HELM);
@@ -159,6 +169,8 @@ public class BaseMod {
         // Add rendering registry entries here.
         // RenderingRegistry.registerEntityRenderingHandler(<entity type>, <render factory>);
         RenderingRegistry.registerEntityRenderingHandler(ZomboEntity.TYPE, ZomboRenderFactory.INSTANCE);
+        RenderingRegistry.registerEntityRenderingHandler(ZomboBearEntity.TYPE, ZomboBearRenderFactory.INSTANCE);
+
 
     }
 
