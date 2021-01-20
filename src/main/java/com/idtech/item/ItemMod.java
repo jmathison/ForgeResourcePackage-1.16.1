@@ -1,9 +1,12 @@
 package com.idtech.item;
 
 import com.idtech.BaseMod;
+import net.minecraft.item.Food;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -24,6 +27,10 @@ public class ItemMod {
     public static Item gelSword = new GelSwordItem(tier,50, 100, new Item.Properties().group(ItemGroup.COMBAT)).setRegistryName(BaseMod.MODID,"gelsword");
 
 
+    //foods
+    public static Food yummyFood = (new Food.Builder()).hunger(5).saturation(1.4f).effect(new EffectInstance(Effects.SPEED, 400, 1), 1.0F).setAlwaysEdible().build();
+    public static Item yummyFoodItem = ItemUtils.buildFoodItem("yummyfood", yummyFood);
+
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         // Register Items
@@ -35,6 +42,8 @@ public class ItemMod {
         event.getRegistry().register(gelShovel);
         event.getRegistry().register(gelPickaxe);
         event.getRegistry().register(gelSword);
+
+        event.getRegistry().register(yummyFoodItem);
 
     }
 }
