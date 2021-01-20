@@ -14,18 +14,19 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber
 public class ItemMod {
 
+    //basic items
+    public static final Item structureGel = ItemUtils.buildBasicItem("structuregel", ItemGroup.MISC);
+    public static final Item gelOre = ItemUtils.buildBasicItem("gelore", ItemGroup.MISC);
 
-//    public static final Item structureGel = ItemUtils.buildBasicItem("structuregel", ItemGroup.MISC);
-//    public static final Item gelOre = ItemUtils.buildBasicItem("gelore", ItemGroup.MISC);
+    //tool tier
+    public static IItemTier gel = ItemUtils.buildItemTier(3, 1561, 8.0F, 3.0F, 10, "examplemod:gelore");
 
-    public static IItemTier tier = ItemUtils.buildItemTier(3, 1561, 8.0F, 3.0F, 10, "examplemod:gelore");
-    //static instance for registration
-    public static Item gelAxe = new GelAxeItem(tier,50, 100, new Item.Properties().group(ItemGroup.TOOLS)).setRegistryName(BaseMod.MODID,"gelaxe");
-    public static Item gelHoe = new GelHoeItem(tier,50, 100, new Item.Properties().group(ItemGroup.TOOLS)).setRegistryName(BaseMod.MODID,"gelhoe");
-    public static Item gelShovel = new GelShovelItem(tier,50, 100, new Item.Properties().group(ItemGroup.TOOLS)).setRegistryName(BaseMod.MODID,"gelshovel");
-    public static Item gelPickaxe = new GelPickaxeItem(tier,50, 100, new Item.Properties().group(ItemGroup.TOOLS)).setRegistryName(BaseMod.MODID,"gelpickaxe");
-    public static Item gelSword = new GelSwordItem(tier,50, 100, new Item.Properties().group(ItemGroup.COMBAT)).setRegistryName(BaseMod.MODID,"gelsword");
-
+    //tool instances
+    public static Item gelAxe = new GelAxeItem(gel,50, 100, new Item.Properties().group(ItemGroup.TOOLS)).setRegistryName(BaseMod.MODID,"gelaxe");
+    public static Item gelHoe = new GelHoeItem(gel,50, 100, new Item.Properties().group(ItemGroup.TOOLS)).setRegistryName(BaseMod.MODID,"gelhoe");
+    public static Item gelShovel = new GelShovelItem(gel,50, 100, new Item.Properties().group(ItemGroup.TOOLS)).setRegistryName(BaseMod.MODID,"gelshovel");
+    public static Item gelPickaxe = new GelPickaxeItem(gel,50, 100, new Item.Properties().group(ItemGroup.TOOLS)).setRegistryName(BaseMod.MODID,"gelpickaxe");
+    public static Item gelSword = new GelSwordItem(gel,50, 100, new Item.Properties().group(ItemGroup.COMBAT)).setRegistryName(BaseMod.MODID,"gelsword");
 
     //foods
     public static Food yummyFood = (new Food.Builder()).hunger(5).saturation(1.4f).effect(new EffectInstance(Effects.SPEED, 400, 1), 1.0F).setAlwaysEdible().build();
@@ -33,17 +34,34 @@ public class ItemMod {
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-        // Register Items
-//        event.getRegistry().register(structureGel);
-//        event.getRegistry().register(gelOre);
 
+        // Basic Items
+        event.getRegistry().register(structureGel);
+        event.getRegistry().register(gelOre);
+
+        // Regular items
+        event.getRegistry().register(FireWandItem.INSTANCE);
+        event.getRegistry().register(LightningHammerItem.INSTANCE);
+        event.getRegistry().register(TeleportRodItem.INSTANCE);
+        event.getRegistry().register(ZooSwordItem.INSTANCE);
+        event.getRegistry().register(SheepMagicWand.INSTANCE);
+        event.getRegistry().register(SqueakyBallItem.INSTANCE);
+
+        // Tools
         event.getRegistry().register(gelAxe);
         event.getRegistry().register(gelHoe);
         event.getRegistry().register(gelShovel);
         event.getRegistry().register(gelPickaxe);
         event.getRegistry().register(gelSword);
 
+        // Food
         event.getRegistry().register(yummyFoodItem);
+
+        // Armor
+        event.getRegistry().register(CustomArmorItem.HELM);
+//        event.getRegistry().register(CustomArmorItem.CHEST);
+//        event.getRegistry().register(CustomArmorItem.LEGS);
+//        event.getRegistry().register(CustomArmorItem.BOOTS);
 
     }
 }

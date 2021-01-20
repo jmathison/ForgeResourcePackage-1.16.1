@@ -63,12 +63,13 @@ public class BaseMod {
         // Add block registry calls here.
         // event.getRegistry().register(<block variable>)
 
-        event.getRegistry().register(basicBlock);
-        event.getRegistry().register(basicOreBlock);
-        event.getRegistry().register(CoolStoneBlock.INSTANCE);
-        event.getRegistry().register(RubberBlock.INSTANCE);
-        event.getRegistry().register(CreeperSupriseBlock.INSTANCE);
-        event.getRegistry().register(CreepingMoldBlock.INSTANCE);
+        BlockMod.registerBlocks(event);
+//        event.getRegistry().register(basicBlock);
+//        event.getRegistry().register(basicOreBlock);
+//        event.getRegistry().register(CoolStoneBlock.INSTANCE);
+//        event.getRegistry().register(RubberBlock.INSTANCE);
+//        event.getRegistry().register(CreeperSupriseBlock.INSTANCE);
+//        event.getRegistry().register(CreepingMoldBlock.INSTANCE);
 
 
 
@@ -84,35 +85,8 @@ public class BaseMod {
         // Add item registry calls here.
         // event.getRegistry.register(<item variable>)
 
-        //Basic Items
-//        event.getRegistry().register(structureGel);
-//        event.getRegistry().register(basicOre);
-        BasicItems.registerItems(event);
         ItemMod.registerItems(event);
-
-        //Items
-        event.getRegistry().register(FireWandItem.INSTANCE);
-        event.getRegistry().register(LightningHammerItem.INSTANCE);
-        event.getRegistry().register(TeleportRodItem.INSTANCE);
-        event.getRegistry().register(ZooSwordItem.INSTANCE);
-        event.getRegistry().register(SheepMagicWand.INSTANCE);
-        event.getRegistry().register(SqueakyBallItem.INSTANCE);
-
-//        event.getRegistry().register(GelSwordItem.INSTANCE);
-//        event.getRegistry().register(GelPickaxeItem.INSTANCE);
-//        event.getRegistry().register(GelAxeItem.INSTANCE);
-//        event.getRegistry().register(GelShovelItem.INSTANCE);
-//        event.getRegistry().register(GelHoeItem.INSTANCE);
-
-
-
-
-        //Armor
-        event.getRegistry().register(CustomArmorItem.HELM);
-//        event.getRegistry().register(CustomArmorItem.CHEST);
-//        event.getRegistry().register(CustomArmorItem.LEGS);
-//        event.getRegistry().register(CustomArmorItem.BOOTS);
-
+        BlockMod.registerBlockItems(event);
 
         //eggs
         event.getRegistry().register(ZomboEntity.EGG);
@@ -120,13 +94,13 @@ public class BaseMod {
 
 
         // Add block registry item calls here
-        event.getRegistry().register(basicBlockItem);
-        event.getRegistry().register(basicOreBlockItem);
-
-        event.getRegistry().register(CoolStoneBlock.ITEM);
-        event.getRegistry().register(RubberBlock.ITEM);
-        event.getRegistry().register(CreeperSupriseBlock.ITEM);
-        event.getRegistry().register(CreepingMoldBlock.ITEM);
+//        event.getRegistry().register(basicBlockItem);
+//        event.getRegistry().register(basicOreBlockItem);
+//
+//        event.getRegistry().register(CoolStoneBlock.ITEM);
+//        event.getRegistry().register(RubberBlock.ITEM);
+//        event.getRegistry().register(CreeperSupriseBlock.ITEM);
+//        event.getRegistry().register(CreepingMoldBlock.ITEM);
     }
 
     /**
