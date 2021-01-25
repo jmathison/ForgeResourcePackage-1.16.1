@@ -1,5 +1,7 @@
 package com.idtech.entity;
 
+
+
 import com.idtech.BaseMod;
 import com.idtech.Utils;
 import net.minecraft.entity.*;
@@ -20,12 +22,12 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class ZomboEntity extends ZombieEntity {
 
     //TYPE
-    public static EntityType<ZomboEntity> TYPE = (EntityType<ZomboEntity>) EntityType.Builder.create(ZomboEntity::new, EntityClassification.MONSTER).build("zombo").setRegistryName(BaseMod.MODID, "zombo");
+    public static EntityType<ZomboEntity> TYPE = (EntityType<ZomboEntity>)
+            EntityType.Builder.create(ZomboEntity::new, EntityClassification.MONSTER).build("zombo").setRegistryName(BaseMod.MODID, "zombo");
     //EGG
     public static Item EGG = EntityUtils.buildEntitySpawnEgg(TYPE, 0xb00101, 0xacbf1f);
 
@@ -56,8 +58,8 @@ public class ZomboEntity extends ZombieEntity {
     }
 
     //constructor
-   // public ZomboEntity(World worldIn){ super(ZomboEntity.TYPE, worldIn); }
-    public ZomboEntity(EntityType<? extends ZombieEntity> type, World worldIn) { super(type, worldIn); }
+    public ZomboEntity(World worldIn){ super(TYPE, worldIn); }
+    public ZomboEntity(EntityType type, World worldIn) { super(type, worldIn); }
 
     //AI
     @Override

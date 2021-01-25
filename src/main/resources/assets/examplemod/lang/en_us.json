@@ -1,7 +1,7 @@
 {
   "item.examplemod.lightninghammer": "Lightning Hammer",
   "item.examplemod.structuregel": "Structure Gel",
-  "item.examplemod.basicore": "Basic Ore",
+  "item.examplemod.gelore": "Gel Ore",
   "item.examplemod.firerod": "Fire Rod",
   "item.examplemod.teleportrod": "Teleport Rod",
   "item.examplemod.gelsword": "Gel Sword",
@@ -15,7 +15,7 @@
   "item.examplemod.squeakyball": "Squeaky Ball",
   "item.examplemod.yummyfood": "Yummy Food",
   "block.examplemod.basic_block": "Basic Block",
-  "block.examplemod.basic_ore_block": "Basic Ore Block",
+  "block.examplemod.geloreblock": "Gel Ore Block",
   "block.examplemod.coolstoneblock": "Cool Stone Block",
   "block.examplemod.creepingmold": "Creeping Mold",
   "block.examplemod.rubber_block": "Rubber Block",

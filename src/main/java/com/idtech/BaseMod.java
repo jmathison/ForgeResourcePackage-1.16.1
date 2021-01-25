@@ -1,14 +1,12 @@
 package com.idtech;
 
 import com.idtech.block.*;
-import com.idtech.entity.ZomboBearEntity;
-import com.idtech.entity.ZomboBearRenderFactory;
-import com.idtech.entity.ZomboEntity;
-import com.idtech.entity.ZomboRenderFactory;
+import com.idtech.entity.*;
 import com.idtech.item.*;
 import com.idtech.world.ObsidianHillsBiome;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.Item;
@@ -39,20 +37,6 @@ public class BaseMod {
     public static final String MODID = "examplemod";
     public static final Logger LOGGER = LogManager.getLogger(BaseMod.MODID);
 
-    //BASIC BLOCKS
-    public static final Block basicBlock = BlockUtils.createBasicBlock("basic_block", Material.ROCK, 0.5f, 0.9f, ToolType.PICKAXE);
-    public static final Item basicBlockItem = BlockUtils.createBlockItem(basicBlock, ItemGroup.MISC);
-
-    public static final Block basicOreBlock = BlockUtils.createBasicBlock("basic_ore_block", Material.ROCK, 0.5f, 0.6f, ToolType.PICKAXE);
-    public static final Item basicOreBlockItem = BlockUtils.createBlockItem(basicOreBlock, ItemGroup.MISC);
-
-    //BASIC ITEMS
-//    public static final Item structureGel = ItemUtils.buildBasicItem("structuregel", ItemGroup.MISC);
-//    public static final Item basicOre = ItemUtils.buildBasicItem("basicore", ItemGroup.MISC);
-
-
-
-
     /**
      * Registers block during mod setup
      * @param event RegistryEvent to access the block registry
@@ -64,14 +48,6 @@ public class BaseMod {
         // event.getRegistry().register(<block variable>)
 
         BlockMod.registerBlocks(event);
-//        event.getRegistry().register(basicBlock);
-//        event.getRegistry().register(basicOreBlock);
-//        event.getRegistry().register(CoolStoneBlock.INSTANCE);
-//        event.getRegistry().register(RubberBlock.INSTANCE);
-//        event.getRegistry().register(CreeperSupriseBlock.INSTANCE);
-//        event.getRegistry().register(CreepingMoldBlock.INSTANCE);
-
-
 
     }
 
@@ -92,15 +68,6 @@ public class BaseMod {
         event.getRegistry().register(ZomboEntity.EGG);
         event.getRegistry().register(ZomboBearEntity.EGG);
 
-
-        // Add block registry item calls here
-//        event.getRegistry().register(basicBlockItem);
-//        event.getRegistry().register(basicOreBlockItem);
-//
-//        event.getRegistry().register(CoolStoneBlock.ITEM);
-//        event.getRegistry().register(RubberBlock.ITEM);
-//        event.getRegistry().register(CreeperSupriseBlock.ITEM);
-//        event.getRegistry().register(CreepingMoldBlock.ITEM);
     }
 
     /**
@@ -114,10 +81,7 @@ public class BaseMod {
         // event.getRegistry.register(<entity type>)
         // also register the entity attributes with:
         // GlobalEntityTypeAttributes.put(<entity type>, <entity attribute method>.func_233813_a_());
-        event.getRegistry().register(ZomboEntity.TYPE);
-        GlobalEntityTypeAttributes.put(ZomboEntity.TYPE, ZomboEntity.setupAttributes().func_233813_a_());
-        event.getRegistry().register(ZomboBearEntity.TYPE);
-        GlobalEntityTypeAttributes.put(ZomboBearEntity.TYPE, ZomboBearEntity.setupAttributes().func_233813_a_());
+        EntityMod.registerEntities(event);
     }
 
     @SubscribeEvent
@@ -127,9 +91,6 @@ public class BaseMod {
         // event.getRegistry.register(<biome variable>)
 
         event.getRegistry().register(ObsidianHillsBiome.INSTANCE);
-        BiomeDictionary.addTypes(ObsidianHillsBiome.INSTANCE, BiomeDictionary.Type.DRY, BiomeDictionary.Type.OVERWORLD);
-        BiomeManager.addBiome(BiomeManager.BiomeType.DESERT, new BiomeManager.BiomeEntry(ObsidianHillsBiome.INSTANCE, 900));
-        BiomeManager.addSpawnBiome(ObsidianHillsBiome.INSTANCE);
 
     }
 
@@ -142,8 +103,9 @@ public class BaseMod {
         BaseMod.LOGGER.info("Client Setup Step");
         // Add rendering registry entries here.
         // RenderingRegistry.registerEntityRenderingHandler(<entity type>, <render factory>);
-        RenderingRegistry.registerEntityRenderingHandler(ZomboEntity.TYPE, ZomboRenderFactory.INSTANCE);
-        RenderingRegistry.registerEntityRenderingHandler(ZomboBearEntity.TYPE, ZomboBearRenderFactory.INSTANCE);
+        EntityMod.entityRenderers();
+//        RenderingRegistry.registerEntityRenderingHandler(ZomboEntity.TYPE, ZomboRenderFactory.INSTANCE);
+//        RenderingRegistry.registerEntityRenderingHandler(ZomboBearEntity.TYPE, ZomboBearRenderFactory.INSTANCE);
 
 
     }
@@ -158,11 +120,14 @@ public class BaseMod {
         // Do any mod setup steps here. Occurs after all registry events.
         // Put biome manager registry stuff here.
         BaseMod.LOGGER.info("Mod Setup Step");
+//        BiomeDictionary.addTypes(ObsidianHillsBiome.INSTANCE, BiomeDictionary.Type.DRY, BiomeDictionary.Type.OVERWORLD);
+//        BiomeManager.addBiome(BiomeManager.BiomeType.DESERT, new BiomeManager.BiomeEntry(ObsidianHillsBiome.INSTANCE, 9000));
+//        BiomeManager.addSpawnBiome(ObsidianHillsBiome.INSTANCE);
 
     }
 
     /**
-     * adds an entity to the spawn list for a biome
+     * Adds an entity to the spawn list for a biome
      * @param type the type of entity to add to the list
      */
     public static void addSpawn (EntityType type) {

@@ -20,13 +20,16 @@ import java.util.function.Predicate;
 public class ZomboBearEntity extends PolarBearEntity {
 
     public static EntityType<ZomboBearEntity> TYPE = (EntityType<ZomboBearEntity>)
-            EntityType.Builder.create(ZomboBearEntity::new, EntityClassification.CREATURE).build("zombo_bear").setRegistryName(BaseMod.MODID, "zombo_bear");
+            EntityType.Builder.<ZomboBearEntity>create(ZomboBearEntity::new, EntityClassification.CREATURE).build("zombo_bear").setRegistryName(BaseMod.MODID, "zombo_bear");
     public static Item EGG = EntityUtils.buildEntitySpawnEgg(TYPE, 0xFFFFFF, 0xacbf1f);
 
-
+    public ZomboBearEntity(World world) {
+        super(TYPE, world);
+    }
     public ZomboBearEntity(EntityType<? extends PolarBearEntity> type, World world) {
         super(type, world);
     }
+
 
     /*
     field_233819_LETTER values from the Attributes class

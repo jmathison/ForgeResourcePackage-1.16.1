@@ -7,7 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -15,15 +14,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
-public class CreeperSupriseBlock extends Block {
+public class CreeperSurpriseBlock extends Block {
 
     //static instances for registration
     private static Properties properties = Properties.create(Material.ROCK).harvestTool(ToolType.PICKAXE);
-    public static Block INSTANCE = new CreeperSupriseBlock(properties).setRegistryName(BaseMod.MODID, "creeper_suprise_block");
+    public static Block INSTANCE = new CreeperSurpriseBlock(properties).setRegistryName(BaseMod.MODID, "creeper_surprise_block");
     public static Item ITEM = BlockUtils.createBlockItem(INSTANCE, ItemGroup.MISC);
 
     //constructor
-    public CreeperSupriseBlock(Properties properties) {
+    public CreeperSurpriseBlock(Properties properties) {
         super(properties);
 
     }
