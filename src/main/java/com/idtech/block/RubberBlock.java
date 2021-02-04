@@ -11,13 +11,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
 public class RubberBlock extends Block{
+    private static Properties properties = Properties.create(Material.ROCK).hardnessAndResistance(0.5f, 0.9f).harvestTool(ToolType.PICKAXE);
 
     //static instances for registration
-    private static Properties properties = Properties.create(Material.ROCK).hardnessAndResistance(0.5f, 0.9f).harvestTool(ToolType.PICKAXE);
     public static Block INSTANCE = new RubberBlock(properties).setRegistryName(BaseMod.MODID,"rubber_block");
     public static Item ITEM = BlockUtils.createBlockItem(INSTANCE, ItemGroup.MISC);
 
     //constructor
+
     public RubberBlock(Properties properties){super(properties);}
 
     //method for when an entity walks on block

@@ -1,10 +1,7 @@
 package com.idtech.item;
 
-import com.idtech.BaseMod;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.PickaxeItem;
+        import com.idtech.BaseMod;
+        import net.minecraft.item.*;
 
 public class GelPickaxeItem extends PickaxeItem {
 
@@ -12,7 +9,7 @@ public class GelPickaxeItem extends PickaxeItem {
     public static Item INSTANCE = new GelPickaxeItem(tier,50, 100, new Properties().group(ItemGroup.TOOLS)).setRegistryName(BaseMod.MODID,"gelpickaxe");
 
     public GelPickaxeItem(IItemTier tier, int attackDamageIn, float attackSpeedIn, Properties properties){
-            super(tier, attackDamageIn, attackSpeedIn, properties);
+        super(tier, attackDamageIn, attackSpeedIn, properties);
 
     }
 }
