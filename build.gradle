@@ -178,7 +178,12 @@ class ItemJSONTask extends DefaultTask {
     }
 }
 
-task buildItemJsons(type: ItemJSONTask)
+task buildItemJSONs(type: ItemJSONTask){
+    group = 'fg_runs'
+    description = 'a gradle task to generate all item jsons from the items file.'
+}
+
+
 
 class BlockJSONTask extends DefaultTask {
     String MODID = 'examplemod'
@@ -248,4 +253,7 @@ class BlockJSONTask extends DefaultTask {
     }
 }
 
-task buildBlockJsons(type: BlockJSONTask)
+task buildBlockJSONs(type: BlockJSONTask){
+    group = 'fg_runs'
+    description = 'a gradle task to generate all block jsons from the blocks file.'
+}
