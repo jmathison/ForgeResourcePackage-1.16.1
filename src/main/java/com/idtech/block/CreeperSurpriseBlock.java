@@ -1,6 +1,5 @@
 package com.idtech.block;
 
-
 import com.idtech.BaseMod;
 import com.idtech.Utils;
 import net.minecraft.block.Block;

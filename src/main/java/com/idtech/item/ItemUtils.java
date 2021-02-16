@@ -1,22 +1,20 @@
 package com.idtech.item;
 
-import com.google.common.collect.Lists;
 import com.idtech.BaseMod;
-import com.mojang.datafixers.util.Pair;
+import com.idtech.JSONManager;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.LazyValue;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.apache.commons.io.FileUtils;
 
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.function.Supplier;
 
 /**
@@ -215,7 +213,6 @@ public class ItemUtils {
 
 
     }
-
 
 
 }

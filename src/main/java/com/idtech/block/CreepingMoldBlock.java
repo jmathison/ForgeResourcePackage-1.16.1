@@ -19,6 +19,7 @@ public class CreepingMoldBlock extends Block {
 
     //static variables for registration
     private static Properties properties = Properties.create(Material.ROCK).harvestTool(ToolType.PICKAXE).tickRandomly();
+
     public static Block INSTANCE = new CreepingMoldBlock(properties).setRegistryName(BaseMod.MODID,"creepingmold");
     public static Item ITEM = BlockUtils.createBlockItem(INSTANCE, ItemGroup.MISC);
 
@@ -40,8 +41,7 @@ public class CreepingMoldBlock extends Block {
         if (blockPos != null) {
             //set the block at that position to this block
             world.setBlockState(blockPos, this.getDefaultState());
-            //log the location
-            BaseMod.LOGGER.debug("Spawned new block at pos X: " + blockPos.getX() + " Y: " + blockPos.getY() + " Z: " + blockPos.getZ());
+
         }
 
     }

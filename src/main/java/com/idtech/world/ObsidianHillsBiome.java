@@ -1,15 +1,11 @@
 package com.idtech.world;
 
-import com.idtech.entity.ZomboEntity;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.biome.MoodSoundAmbience;
-import net.minecraft.world.biome.provider.OverworldBiomeProvider;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
@@ -37,7 +33,7 @@ public class ObsidianHillsBiome extends Biome {
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addDesertFeatures(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(ZomboEntity.TYPE, 25, 1, 3));
+      //  this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(ZomboEntityO.TYPE, 25, 1, 3));
 
     }
 }

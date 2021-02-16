@@ -20,12 +20,14 @@ public class ItemMod {
     public static Food yummyFood = (new Food.Builder()).hunger(5).saturation(1.4f).effect(new EffectInstance(Effects.HEALTH_BOOST, 500, 1), 1.0f).effect(new EffectInstance(Effects.SPEED, 400, 1), 1.0F).setAlwaysEdible().build();
     public static Item yummyFoodItem = ItemUtils.buildFoodItem("yummyfood", yummyFood);
 
+
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
 
         // Basic Items
         event.getRegistry().register(STRUCTURE_GEL);
         event.getRegistry().register(GEL_ORE);
+
 
         // Regular items
         event.getRegistry().register(FireWandItem.INSTANCE);

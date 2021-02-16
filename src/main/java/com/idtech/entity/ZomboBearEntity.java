@@ -3,7 +3,6 @@ package com.idtech.entity;
 import com.idtech.BaseMod;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -14,8 +13,6 @@ import net.minecraft.entity.passive.PolarBearEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
-
-import java.util.function.Predicate;
 
 public class ZomboBearEntity extends PolarBearEntity {
 
@@ -61,7 +58,7 @@ public class ZomboBearEntity extends PolarBearEntity {
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, true, null));
 
         //have it use the zombo and itself as help
-        this.targetSelector.addGoal(5, (new HurtByTargetGoal(this)).setCallsForHelp(ZomboEntity.class));
+     //   this.targetSelector.addGoal(5, (new HurtByTargetGoal(this)).setCallsForHelp(ZomboEntityO.class));
         this.targetSelector.addGoal(5, (new HurtByTargetGoal(this)).setCallsForHelp(ZomboBearEntity.class));
 
     }

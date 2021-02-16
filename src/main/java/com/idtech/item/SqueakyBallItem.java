@@ -27,11 +27,14 @@ public class SqueakyBallItem extends Item {
     //on item right click
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+
         //get held item for return status
         ItemStack itemstack = playerIn.getHeldItem(handIn);
 
         //play sound
         Utils.playSound(worldIn, playerIn, SoundEvents.ENTITY_BAT_AMBIENT);
+
+
         return ActionResult.resultSuccess(itemstack);
     }
 }

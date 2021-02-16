@@ -1,16 +1,18 @@
 package com.idtech.entity;
 
-import com.idtech.BaseMod;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityClassification;
+import com.idtech.JSONManager;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SpawnEggItem;
-import net.minecraft.world.World;
-import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.io.FileUtils;
 
-import java.lang.reflect.InvocationTargetException;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Paths;
 
 public class EntityUtils {
 
@@ -30,7 +32,68 @@ public class EntityUtils {
      * @return
      */
     public static Item buildEntitySpawnEgg(EntityType type, int primaryColor, int secondaryColor){
+        //createJSONFile(type.getName().toString());
         return new SpawnEggItem(type, primaryColor, secondaryColor, new Item.Properties().group(ItemGroup.MISC)).setRegistryName(type.getRegistryName() + "_egg");
     }
+    public static AttributeModifierMap.MutableAttribute addAttributes(boolean isZombie, double maxHealth, double followRange, double knockbackResistance, double movementSpeed, double attackDamage, int armor, int armorToughness){
+        AttributeModifierMap.MutableAttribute ammma = MobEntity.func_233666_p_();
 
+        if(maxHealth > 0){
+            ammma.func_233815_a_(Attributes.field_233818_a_, maxHealth);
+        }
+        if(followRange > 0){
+            ammma.func_233815_a_(Attributes.field_233819_b_, followRange);
+        }
+        if(knockbackResistance >0){
+            ammma.func_233815_a_(Attributes.field_233820_c_, knockbackResistance);
+        }
+        if(movementSpeed > 0){
+            ammma.func_233815_a_(Attributes.field_233821_d_, movementSpeed);
+        }
+        if(attackDamage>0){
+            ammma.func_233815_a_(Attributes.field_233823_f_, attackDamage);
+        }
+        if(armor>0){
+            ammma.func_233815_a_(Attributes.field_233826_i_, armor);
+        }
+        if(armorToughness>0){
+            ammma.func_233815_a_(Attributes.field_233827_j_, armorToughness);
+        }
+        if(isZombie){
+            ammma.func_233814_a_(Attributes.field_233829_l_);
+        }
+
+        return ammma;
+
+    }
+
+    public static AttributeModifierMap.MutableAttribute addAttributes(boolean isZombie){
+
+        if(isZombie){
+            return MobEntity.func_233666_p_().func_233814_a_(Attributes.field_233823_f_).func_233814_a_(Attributes.field_233829_l_);
+        }else{
+            return MobEntity.func_233666_p_().func_233814_a_(Attributes.field_233823_f_);
+        }
+
+    }
+    public static void createJSONFile(String name) {
+        File f = Paths.get(".").resolve(JSONManager.assetsDir + "/models/item/" + JSONManager.jsonName(name) + ".json")
+                .toFile();
+
+        if (f.exists()) {
+            f.delete();
+        }
+
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("{");
+        builder.append("\"parent\": \"item/template_spawn_egg\"");
+        builder.append("}");
+
+        try {
+            FileUtils.writeStringToFile(f, builder.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -5,22 +5,16 @@ import com.idtech.entity.*;
 import com.idtech.item.*;
 import com.idtech.world.ObsidianHillsBiome;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.fml.loading.FMLConfig;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,6 +30,7 @@ public class BaseMod {
     // Change your modid here. Whenever modid is needed, use BaseMod.MODID
     public static final String MODID = "examplemod";
     public static final Logger LOGGER = LogManager.getLogger(BaseMod.MODID);
+
 
     /**
      * Registers block during mod setup
@@ -63,10 +58,7 @@ public class BaseMod {
 
         ItemMod.registerItems(event);
         BlockMod.registerBlockItems(event);
-
-        //eggs
-        event.getRegistry().register(ZomboEntity.EGG);
-        event.getRegistry().register(ZomboBearEntity.EGG);
+        EntityMod.registerEntityEggs(event);
 
     }
 
@@ -90,7 +82,7 @@ public class BaseMod {
         // Add biome registry calls here
         // event.getRegistry.register(<biome variable>)
 
-        event.getRegistry().register(ObsidianHillsBiome.INSTANCE);
+      //  event.getRegistry().register(ObsidianHillsBiome.INSTANCE);
 
     }
 
@@ -104,11 +96,12 @@ public class BaseMod {
         // Add rendering registry entries here.
         // RenderingRegistry.registerEntityRenderingHandler(<entity type>, <render factory>);
         EntityMod.entityRenderers();
-//        RenderingRegistry.registerEntityRenderingHandler(ZomboEntity.TYPE, ZomboRenderFactory.INSTANCE);
+//        RenderingRegistry.registerEntityRenderingHandler(ZomboEntityO.TYPE, ZomboRenderFactory.INSTANCE);
 //        RenderingRegistry.registerEntityRenderingHandler(ZomboBearEntity.TYPE, ZomboBearRenderFactory.INSTANCE);
 
 
     }
+
 
 
     /**
@@ -118,7 +111,7 @@ public class BaseMod {
     @SubscribeEvent
     public static void setup(FMLCommonSetupEvent event){
         // Do any mod setup steps here. Occurs after all registry events.
-        // Put biome manager registry stuff here.
+        // Put biome manager registry blocks here.
         BaseMod.LOGGER.info("Mod Setup Step");
 //        BiomeDictionary.addTypes(ObsidianHillsBiome.INSTANCE, BiomeDictionary.Type.DRY, BiomeDictionary.Type.OVERWORLD);
 //        BiomeManager.addBiome(BiomeManager.BiomeType.DESERT, new BiomeManager.BiomeEntry(ObsidianHillsBiome.INSTANCE, 9000));
