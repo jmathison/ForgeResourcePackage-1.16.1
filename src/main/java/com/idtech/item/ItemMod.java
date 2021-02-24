@@ -14,6 +14,8 @@ public class ItemMod {
 
     //Basic Items
     public static final Item STRUCTURE_GEL = ItemUtils.buildBasicItem("structuregel", ItemGroup.MISC);
+
+
     public static final Item GEL_ORE = ItemUtils.buildBasicItem("gelore", ItemGroup.MISC);
 
     //foods
@@ -49,9 +51,9 @@ public class ItemMod {
 
         // Armor
         event.getRegistry().register(CustomArmorItem.HELM);
-//        event.getRegistry().register(CustomArmorItem.CHEST);
-//        event.getRegistry().register(CustomArmorItem.LEGS);
-//        event.getRegistry().register(CustomArmorItem.BOOTS);
+        event.getRegistry().register(CustomArmorItem.CHEST);
+        event.getRegistry().register(CustomArmorItem.LEGS);
+        event.getRegistry().register(CustomArmorItem.BOOTS);
 
     }
 }

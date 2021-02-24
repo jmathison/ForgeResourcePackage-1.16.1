@@ -19,6 +19,10 @@ public class CustomArmorItem extends ArmorItem {
 
     //static instances for registering
     public static Item HELM = new CustomArmorItem(customMaterial, EquipmentSlotType.HEAD, properties).setRegistryName(BaseMod.MODID,"customhelm");
+    public static Item CHEST = new CustomArmorItem(customMaterial, EquipmentSlotType.CHEST, properties).setRegistryName(BaseMod.MODID,"customchest");
+    public static Item LEGS = new CustomArmorItem(customMaterial, EquipmentSlotType.LEGS, properties).setRegistryName(BaseMod.MODID,"customlegs");
+    public static Item BOOTS = new CustomArmorItem(customMaterial, EquipmentSlotType.FEET, properties).setRegistryName(BaseMod.MODID,"customboots");
+
 
     //constructor
     public CustomArmorItem(IArmorMaterial material, EquipmentSlotType type, Properties properties) {
