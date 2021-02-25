@@ -5,6 +5,7 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.AbstractFireBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CampfireBlock;
+import net.minecraft.client.audio.Sound;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -16,21 +17,21 @@ import net.minecraft.entity.projectile.ProjectileHelper;
 import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.math.*;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 import java.util.function.Predicate;
 
 /**
- * Utilities to use with blocks, items and entities to simplify some functionality
+ * Utilities to use with block, item and entities to simplify some functionality
  */
 public class Utils {
+    //protected static Random random;
 
     /**
      * Strikes a location with lightning
@@ -48,20 +49,31 @@ public class Utils {
     }
 
     /**
+     * Creates an explosion at location with radius of explosionRadius
+     * @param world The world to create explosion in
+     * @param location the block position to create explosion
+     * @param explosionRadius the radius of the explosion
+     */
+    public static void createExplosion(World world, BlockPos location, float explosionRadius){
+        world.createExplosion(null, location.getX(), location.getY(), location.getZ(), 5f, Explosion.Mode.BREAK);
+
+    }
+
+    /**
      * Spawn an entity in the world
      * @param world world to spawn the entity in
      * @param type entity type to spawn. Access vanilla entities with 'EntityType.' constants
      * @param location block position to spawn at
      */
-    public static void spawnEntity(World world, EntityType type, BlockPos location){
-        type.spawn(world, null, null, location, SpawnReason.COMMAND, true, false);
+    public static Entity spawnEntity(World world, EntityType type, BlockPos location){
+        return type.spawn(world, null, null, location, SpawnReason.COMMAND, true, false);
     }
 
     /**
      * Get the block that the player is looking at.
      * @param player The player whose look we're checking
-     * @param distance range to check in blocks
-     * @param ignoreFluids True or False. If True, blocks underwater will be detected. If False, the first water block
+     * @param distance range to check in block
+     * @param ignoreFluids True or False. If True, block underwater will be detected. If False, the first water block
      *                     hit will be detected.
      * @return Block position if one is found within range, null if no block in range.
      */
@@ -81,7 +93,7 @@ public class Utils {
     /**
      * Get the entity that the player is looking at.
      * @param player The player whose look we're checking
-     * @param distance range to check in blocks
+     * @param distance range to check in block
      * @return The entity hit, null if none is found.
      */
     public static Entity getEntityAtCursor(PlayerEntity player, double distance){
@@ -119,5 +131,25 @@ public class Utils {
         }
     }
 
+    /**
+     * Find a random block pos based on a block pos.
+     * @param pos position of the block from which to spread
+     * @return a random position near that block.
+     */
+    public static BlockPos findNeightborBlock(BlockPos pos){
+
+        int spreadX = (int)Math.floor(Math.random()*3) - 1;
+        int spreadY = spreadX == 0 ? (int)Math.floor(Math.random()*3) - 1 : 0 ;
+        int spreadZ = spreadX == 0  && spreadY == 0 ? (int)Math.floor(Math.random()*3) - 1 : 0;
+        BlockPos spreadPos = pos.add(spreadX, spreadY, spreadZ);
+
+        return spreadPos;
+    }
+
+
+    public static void playSound(World world, PlayerEntity player, SoundEvent sound){
+       // world.playSound(player.getPosX(), player.getPosY(), player.getPosZ(), sound, SoundCategory.AMBIENT, 1.0f, 1.0f);
+        world.playSound(null, player.getPosX(), player.getPosY(), player.getPosZ(), sound, SoundCategory.NEUTRAL, 0.5f, 0.4f);
+    }
 
 }
