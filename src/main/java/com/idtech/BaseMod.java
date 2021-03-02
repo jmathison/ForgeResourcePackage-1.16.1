@@ -1,6 +1,7 @@
 package com.idtech;
 
 import com.idtech.block.*;
+import com.idtech.entity.EntityMod;
 import com.idtech.item.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
@@ -53,8 +54,7 @@ public class BaseMod {
 
         ItemMod.registerItems(event);
         BlockMod.registerBlockItems(event);
-
-        //EGGS
+        EntityMod.registerEntityEggs(event);
 
     }
 
@@ -69,6 +69,8 @@ public class BaseMod {
         // event.getRegistry.register(<entity type>)
         // also register the entity attributes with:
         // GlobalEntityTypeAttributes.put(<entity type>, <entity attribute method>.func_233813_a_());
+        EntityMod.registerEntities(event);
+
     }
 
     @SubscribeEvent
@@ -88,6 +90,7 @@ public class BaseMod {
         BaseMod.LOGGER.info("Client Setup Step");
         // Add rendering registry entries here.
         // RenderingRegistry.registerEntityRenderingHandler(<entity type>, <render factory>);
+        EntityMod.entityRenderers();
 
     }
 
@@ -102,8 +105,6 @@ public class BaseMod {
         // Put biome manager registry stuff here.
         BaseMod.LOGGER.info("Mod Setup Step");
 
-//        ItemMod.generateJsons();
-//        BlockMod.generateJsons();
 
     }
 
