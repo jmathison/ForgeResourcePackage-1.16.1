@@ -3,7 +3,6 @@ package com.idtech;
 import com.idtech.block.*;
 import com.idtech.entity.*;
 import com.idtech.item.*;
-import com.idtech.world.ObsidianHillsBiome;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
@@ -13,8 +12,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
-import net.minecraftforge.fml.loading.FMLConfig;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -59,6 +56,7 @@ public class BaseMod {
         ItemMod.registerItems(event);
         BlockMod.registerBlockItems(event);
         EntityMod.registerEntityEggs(event);
+
 
     }
 

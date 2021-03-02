@@ -76,24 +76,5 @@ public class EntityUtils {
         }
 
     }
-    public static void createJSONFile(String name) {
-        File f = Paths.get(".").resolve(JSONManager.assetsDir + "/models/item/" + JSONManager.jsonName(name) + ".json")
-                .toFile();
 
-        if (f.exists()) {
-            f.delete();
-        }
-
-        StringBuilder builder = new StringBuilder();
-
-        builder.append("{");
-        builder.append("\"parent\": \"item/template_spawn_egg\"");
-        builder.append("}");
-
-        try {
-            FileUtils.writeStringToFile(f, builder.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

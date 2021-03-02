@@ -4,6 +4,7 @@ import com.idtech.BaseMod;
 import com.idtech.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -37,8 +38,7 @@ public class CreepingMoldBlock extends Block {
         //find a random neighboring block position
         BlockPos blockPos = Utils.findNeightborBlock(pos);
 
-        //if the block pos is not null
-        if (blockPos != null) {
+        if (blockPos != null){
             //set the block at that position to this block
             world.setBlockState(blockPos, this.getDefaultState());
 
