@@ -23,6 +23,7 @@ public class ItemMod {
     public static Item yummyFoodItem = ItemUtils.buildFoodItem("yummyfood", yummyFood);
 
 
+
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
 
@@ -38,6 +39,7 @@ public class ItemMod {
         event.getRegistry().register(ZooSwordItem.INSTANCE);
         event.getRegistry().register(SheepMagicWand.INSTANCE);
         event.getRegistry().register(SqueakyBallItem.INSTANCE);
+        event.getRegistry().register(FunNewItem.INSTANCE);
 
         // Tools
         event.getRegistry().register(GelAxeItem.INSTANCE);
@@ -48,6 +50,7 @@ public class ItemMod {
 
         // Food
         event.getRegistry().register(yummyFoodItem);
+        event.getRegistry().register(TastyFood.ITEM);
 
         // Armor
         event.getRegistry().register(CustomArmorItem.HELM);

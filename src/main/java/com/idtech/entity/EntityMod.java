@@ -15,19 +15,29 @@ public class EntityMod {
         event.getRegistry().register(ZomboEntity.TYPE);
         GlobalEntityTypeAttributes.put(ZomboEntity.TYPE, ZomboEntity.setupAttributes().func_233813_a_());
 
+        event.getRegistry().register(ZomboBearEntity.TYPE);
+        GlobalEntityTypeAttributes.put(ZomboBearEntity.TYPE, ZomboBearEntity.setupAttributes().func_233813_a_());
+
+        event.getRegistry().register(ExplodingPigEntity.TYPE);
+        GlobalEntityTypeAttributes.put(ExplodingPigEntity.TYPE, ExplodingPigEntity.setupAttributes().func_233813_a_());
+
+
     }
 
     @SubscribeEvent
     public static void registerEntityEggs(final RegistryEvent.Register<Item> event){
 
         event.getRegistry().register(ZomboEntity.EGG);
-
+        event.getRegistry().register(ZomboBearEntity.EGG);
+        event.getRegistry().register(ExplodingPigEntity.EGG);
 
     }
 
     public static void entityRenderers(){
 
         RenderingRegistry.registerEntityRenderingHandler(ZomboEntity.TYPE, ZomboRenderFactory.INSTANCE);
+        RenderingRegistry.registerEntityRenderingHandler(ZomboBearEntity.TYPE, ZomboBearRenderFactory.INSTANCE);
+        RenderingRegistry.registerEntityRenderingHandler(ExplodingPigEntity.TYPE, ExplodingPigRenderFactory.INSTANCE);
 
     }
 
