@@ -3,7 +3,6 @@ package com.idtech;
 import com.idtech.block.*;
 import com.idtech.entity.*;
 import com.idtech.item.*;
-import com.idtech.world.CottonCandyBiome;
 import com.idtech.world.ObsidianHillsBiome;
 import com.idtech.world.WorldMod;
 import net.minecraft.block.Block;
