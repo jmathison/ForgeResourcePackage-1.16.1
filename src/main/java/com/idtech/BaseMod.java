@@ -3,10 +3,15 @@ package com.idtech;
 import com.idtech.block.*;
 import com.idtech.entity.*;
 import com.idtech.item.*;
+import com.idtech.world.CottonCandyBiome;
+import com.idtech.world.ObsidianHillsBiome;
+import com.idtech.world.WorldMod;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -79,8 +84,7 @@ public class BaseMod {
         BaseMod.LOGGER.info("Registering Biomes");
         // Add biome registry calls here
         // event.getRegistry.register(<biome variable>)
-
-      //  event.getRegistry().register(ObsidianHillsBiome.INSTANCE);
+        WorldMod.registerBiomes(event);
 
     }
 
@@ -111,9 +115,7 @@ public class BaseMod {
         // Do any mod setup steps here. Occurs after all registry events.
         // Put biome manager registry blocks here.
         BaseMod.LOGGER.info("Mod Setup Step");
-//        BiomeDictionary.addTypes(ObsidianHillsBiome.INSTANCE, BiomeDictionary.Type.DRY, BiomeDictionary.Type.OVERWORLD);
-//        BiomeManager.addBiome(BiomeManager.BiomeType.DESERT, new BiomeManager.BiomeEntry(ObsidianHillsBiome.INSTANCE, 9000));
-//        BiomeManager.addSpawnBiome(ObsidianHillsBiome.INSTANCE);
+        WorldMod.setupBiomes();
 
     }
 
