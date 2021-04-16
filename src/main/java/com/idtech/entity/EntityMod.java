@@ -21,8 +21,6 @@ public class EntityMod {
         event.getRegistry().register(ExplodingPigEntity.TYPE);
         GlobalEntityTypeAttributes.put(ExplodingPigEntity.TYPE, ExplodingPigEntity.setupAttributes().func_233813_a_());
 
-        event.getRegistry().register(CustomFireball.TYPE);
-
     }
 
     @SubscribeEvent
