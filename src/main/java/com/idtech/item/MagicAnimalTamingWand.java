@@ -30,6 +30,7 @@ public class MagicAnimalTamingWand extends Item{
 
         Entity entity = Utils.getEntityAtCursor(playerIn, 100);
 
+
         playerIn.startRiding(entity);
 
         return super.onItemRightClick(worldIn, playerIn, handIn);
