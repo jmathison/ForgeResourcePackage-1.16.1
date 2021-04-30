@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class FireWandItem extends Item {
 
     //static instance for registry
-    public static Item INSTANCE = new FireWandItem(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(BaseMod.MODID, "firewand");
+    public static Item INSTANCE = new FireWandItem(new Properties().group(ItemGroup.MISC)).setRegistryName(BaseMod.MODID, "firewand");
 
     //constructor
     public FireWandItem(Properties properties) {

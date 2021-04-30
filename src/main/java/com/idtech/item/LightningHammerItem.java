@@ -14,7 +14,7 @@ public class LightningHammerItem extends Item {
 
 
     //static instance for registration
-    private static Properties properties = new Item.Properties().group(ItemGroup.MISC);
+    private static Properties properties = new Properties().group(ItemGroup.MISC);
     public static Item INSTANCE = new LightningHammerItem(properties).setRegistryName("lightninghammer");
 
     //constructor

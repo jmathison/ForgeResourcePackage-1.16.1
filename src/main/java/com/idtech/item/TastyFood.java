@@ -12,9 +12,9 @@ import net.minecraft.world.World;
 public class TastyFood extends Item{
 
     public static Food INSTANCE = (new Food.Builder()).hunger(5).saturation(1.4f).effect(new EffectInstance(Effects.HEALTH_BOOST, 500, 1), 1.0f).effect(new EffectInstance(Effects.SPEED, 400, 1), 1.0F).setAlwaysEdible().build();
-    public static Item ITEM =  new TastyFood(new Item.Properties().group(ItemGroup.FOOD).food(INSTANCE)).setRegistryName(BaseMod.MODID, "tastyfood");
+    public static Item ITEM =  new TastyFood(new Properties().group(ItemGroup.FOOD).food(INSTANCE)).setRegistryName(BaseMod.MODID, "tastyfood");
 
-    public TastyFood(Item.Properties properties) {
+    public TastyFood(Properties properties) {
         super(properties);
     }
 

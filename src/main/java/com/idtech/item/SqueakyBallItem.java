@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class SqueakyBallItem extends Item {
 
     //properties object
-    public static Properties properties = new Item.Properties().group(ItemGroup.MISC);
+    public static Properties properties = new Properties().group(ItemGroup.MISC);
     //static instance for registration
     public static Item INSTANCE = new SqueakyBallItem(properties).setRegistryName(BaseMod.MODID, "squeakyball");
 

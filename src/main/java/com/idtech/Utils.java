@@ -1,6 +1,5 @@
 package com.idtech;
 
-import com.sun.media.jfxmedia.logging.Logger;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.AbstractFireBlock;
 import net.minecraft.block.BlockState;

@@ -11,12 +11,12 @@ import net.minecraft.world.World;
 
 public class FunNewItem extends Item{
     //properties object
-    public static Item.Properties properties = new Item.Properties().group(ItemGroup.MISC);
+    public static Properties properties = new Properties().group(ItemGroup.MISC);
     //static instance for registration
     public static Item INSTANCE = new FunNewItem(properties).setRegistryName(BaseMod.MODID, "testitem");
 
     //constructor
-    public FunNewItem(Item.Properties properties){
+    public FunNewItem(Properties properties){
         super(properties);
 
     }

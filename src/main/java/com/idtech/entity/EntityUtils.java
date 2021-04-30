@@ -1,6 +1,5 @@
 package com.idtech.entity;
 
-import com.idtech.JSONManager;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;

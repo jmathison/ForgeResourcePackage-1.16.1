@@ -1,7 +1,6 @@
 package com.idtech.item;
 
 import com.idtech.BaseMod;
-import com.idtech.JSONManager;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;

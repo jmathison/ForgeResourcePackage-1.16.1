@@ -13,7 +13,7 @@ public class ObsidianHillsBiome extends Biome {
     public static Biome INSTANCE = new ObsidianHillsBiome(new Builder()
             .surfaceBuilder(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.OBSIDIAN.getDefaultState(), Blocks.SAND.getDefaultState(), Blocks.STONE.getDefaultState()))
             .precipitation(RainType.RAIN)
-            .category(Biome.Category.DESERT)
+            .category(Category.DESERT)
             .depth(0.6f)
             .scale(0.9F)
             .temperature(2.0F)

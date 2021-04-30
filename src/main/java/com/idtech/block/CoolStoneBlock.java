@@ -16,7 +16,7 @@ import java.util.Random;
 public class CoolStoneBlock extends Block {
 
     //static instances for the registry
-    public static Block INSTANCE = new CoolStoneBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(0.5f, 0.9f).harvestTool(ToolType.SHOVEL).tickRandomly()).setRegistryName("coolstoneblock");
+    public static Block INSTANCE = new CoolStoneBlock(Properties.create(Material.ROCK).hardnessAndResistance(0.5f, 0.9f).harvestTool(ToolType.SHOVEL).tickRandomly()).setRegistryName("coolstoneblock");
     public static Item ITEM = BlockUtils.createBlockItem(INSTANCE, ItemGroup.MISC);
 
     //construuctor

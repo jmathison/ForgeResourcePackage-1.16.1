@@ -15,12 +15,12 @@ import net.minecraft.world.World;
 public class MagicAnimalTamingWand extends Item{
 
     //properties object
-    public static Item.Properties properties = new Item.Properties().group(ItemGroup.MISC);
+    public static Properties properties = new Properties().group(ItemGroup.MISC);
     //static instance for registration
     public static Item INSTANCE = new MagicAnimalTamingWand(properties).setRegistryName(BaseMod.MODID, "magicanimal");
 
     //constructor
-    public MagicAnimalTamingWand(Item.Properties properties){
+    public MagicAnimalTamingWand(Properties properties){
         super(properties);
 
     }
