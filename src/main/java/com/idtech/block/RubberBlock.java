@@ -1,6 +1,7 @@
 package com.idtech.block;
 
 import com.idtech.BaseMod;
+import com.idtech.SoundHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -28,5 +29,6 @@ public class RubberBlock extends Block{
 
         //entity add velocity and then the numbers are x y and z respectively
         entityIn.addVelocity(0,5,0);
+
     }
 }
