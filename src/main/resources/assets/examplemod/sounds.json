@@ -1,0 +1,14 @@
+{
+  "boing":
+  { "category": "master",
+    "sounds": ["examplemod:boing"],
+    "subtitle": "examplemod.subtitle.boing",
+    "stream": true },
+
+  "oof":
+  { "category": "master",
+    "sounds":  ["examplemod:oof"],
+    "subtitle":  "examplemod.subtitle.oof",
+    "stream": true}
+
+}

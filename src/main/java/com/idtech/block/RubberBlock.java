@@ -1,6 +1,7 @@
 package com.idtech.block;
 
 import com.idtech.BaseMod;
+import com.idtech.SoundHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -28,5 +29,8 @@ public class RubberBlock extends Block{
 
         //entity add velocity and then the numbers are x y and z respectively
         entityIn.addVelocity(0,5,0);
+        if (worldIn.isRemote){ //Sounds should only play on the server's version of the world
+            entityIn.playSound(SoundHandler.boing, 10f, 1f);//play the boing sound to the player, making the volume higher than normal so it can still be heard while the player is flying in the air
+        }
     }
 }
