@@ -17,10 +17,14 @@ public class SoundHandler {
 
     public static SoundEvent oof;
     public static SoundEvent boing;
+    public static SoundEvent fitness;
+    public static SoundEvent bee;
 
     static{
         oof = addSoundInfo("oof");
         boing = addSoundInfo("boing");
+        bee = addSoundInfo("bee");
+        fitness = addSoundInfo("fitness");
     }
     //This method lets us easily add new sounds and correctly set their registry name and location.
     private static SoundEvent addSoundInfo(String soundPath){
@@ -32,7 +36,7 @@ public class SoundHandler {
 
     @SubscribeEvent
     public void registerSounds(RegistryEvent.Register<SoundEvent> event) {
-        event.getRegistry().registerAll(oof,boing);
+        event.getRegistry().registerAll(oof,boing,bee,fitness);
     }
     //This method registers the sounds correctly
 

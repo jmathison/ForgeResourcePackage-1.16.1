@@ -9,6 +9,17 @@
   { "category": "master",
     "sounds":  ["examplemod:oof"],
     "subtitle":  "examplemod.subtitle.oof",
-    "stream": true}
+    "stream": true},
 
+  "fitness":
+  { "category": "master",
+    "sounds":  ["examplemod:fitness"],
+    "subtitle":  "examplemod.subtitle.fitness",
+    "stream": true},
+
+  "bee":
+  { "category": "master",
+    "sounds":  ["examplemod:bee"],
+    "subtitle":  "examplemod.subtitle.bee",
+    "stream": true}
 }
