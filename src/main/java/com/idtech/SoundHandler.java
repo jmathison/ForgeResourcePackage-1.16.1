@@ -15,11 +15,11 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber
 public class SoundHandler {
 
-    public static SoundEvent oof;
+    public static SoundEvent sad;
     public static SoundEvent boing;
 
     static{
-        oof = addSoundInfo("oof");
+        sad = addSoundInfo("sad");
         boing = addSoundInfo("boing");
     }
     //This method lets us easily add new sounds and correctly set their registry name and location.
@@ -32,7 +32,7 @@ public class SoundHandler {
 
     @SubscribeEvent
     public void registerSounds(RegistryEvent.Register<SoundEvent> event) {
-        event.getRegistry().registerAll(oof,boing);
+        event.getRegistry().registerAll(sad,boing);
     }
     //This method registers the sounds correctly
 
@@ -44,7 +44,7 @@ public class SoundHandler {
             if (theEntity.world instanceof ServerWorld){ //Sounds should only play on the server version of the world
 
                 ServerWorld serverWorld = (ServerWorld) event.getEntity().world;
-                serverWorld.playSound(null, theEntity.getPosX(), theEntity.getPosY(), theEntity.getPosZ(), SoundHandler.oof, SoundCategory.MASTER, 1f, 1f);
+                serverWorld.playSound(null, theEntity.getPosX(), theEntity.getPosY(), theEntity.getPosZ(), SoundHandler.sad, SoundCategory.MASTER, 1f, 1f);
                 //Play the "oof" sound at the player's location of death.
             }
         }

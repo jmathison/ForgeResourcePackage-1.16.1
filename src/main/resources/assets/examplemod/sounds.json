@@ -5,10 +5,10 @@
     "subtitle": "examplemod.subtitle.boing",
     "stream": true },
 
-  "oof":
+  "sad":
   { "category": "master",
-    "sounds":  ["examplemod:oof"],
-    "subtitle":  "examplemod.subtitle.oof",
+    "sounds":  ["examplemod:sad"],
+    "subtitle":  "examplemod.subtitle.sad",
     "stream": true}
 
 }
