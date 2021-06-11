@@ -8,6 +8,7 @@ import net.minecraft.potion.Effects;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.lwjgl.system.CallbackI;
 
 @Mod.EventBusSubscriber
 public class ItemMod {
@@ -60,6 +61,10 @@ public class ItemMod {
         event.getRegistry().register(CustomArmorItem.CHEST);
         event.getRegistry().register(CustomArmorItem.LEGS);
         event.getRegistry().register(CustomArmorItem.BOOTS);
+
+        // Arrows
+        event.getRegistry().register(LightningArrowItem.INSTANCE);
+        event.getRegistry().register(BombArrowItem.INSTANCE);
 
     }
 }
