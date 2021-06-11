@@ -16,18 +16,17 @@ import net.minecraft.world.World;
 
 public class LightningArrowEntity extends AbstractArrowEntity {
 
-    public LightningArrowEntity(EntityType<? extends ArrowEntity> entityType, World world) {
-        super(entityType, world);
-    }
-
+    //constructor for a world and shooter
     public LightningArrowEntity(World world, LivingEntity livingEntity) {
         super(EntityType.ARROW, livingEntity, world);
     }
 
-
+    //this tells minecraft what item to give a player when picking up a missed arrow
     protected ItemStack getArrowStack() {
         return new ItemStack(Items.ARROW);
     }
+
+
 
     @Override
     protected void onImpact(RayTraceResult p_70227_1_) {

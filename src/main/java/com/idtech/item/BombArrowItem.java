@@ -11,7 +11,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class BombArrowItem extends ArrowItem {
-    private static Properties properties = new Properties().group(ItemGroup.MISC);
+
+    //typical item setup
+    private static Properties properties = new Properties().group(ItemGroup.COMBAT);
     public static Item INSTANCE = new BombArrowItem(properties).setRegistryName("bombarrow");;
 
     //constructor
@@ -19,6 +21,9 @@ public class BombArrowItem extends ArrowItem {
         super(properties);
     }
 
+    //this function is called when the arrow impacts an entity or surface
+    //this is where a custom effect can be added
+    //onEntityHit can also be used but will only trigger on mobs
     @Override
     public AbstractArrowEntity createArrow(World worldIn, ItemStack stack, LivingEntity shooter) {
         BombArrowEntity arrowentity = new BombArrowEntity(worldIn, shooter);

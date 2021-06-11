@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class LightningArrowItem extends ArrowItem {
+    //typical item setup
     private static Properties properties = new Properties().group(ItemGroup.MISC);
     public static Item INSTANCE = new LightningArrowItem(properties).setRegistryName("lightningarrow");;
 
@@ -19,6 +20,7 @@ public class LightningArrowItem extends ArrowItem {
         super(properties);
     }
 
+    //This tells minecraft what entity to spawn when shooting this ammo
     @Override
     public AbstractArrowEntity createArrow(World worldIn, ItemStack stack, LivingEntity shooter) {
         LightningArrowEntity arrowentity = new LightningArrowEntity(worldIn, shooter);
