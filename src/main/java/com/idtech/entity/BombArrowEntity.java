@@ -17,6 +17,9 @@ public class BombArrowEntity extends AbstractArrowEntity {
     public BombArrowEntity(World world, LivingEntity livingEntity) {
         super(EntityType.ARROW, livingEntity, world);
     }
+    public BombArrowEntity(World world) {
+        super(EntityType.ARROW, world);
+    }
 
     //this tells minecraft what item to give a player when picking up a missed arrow
     protected ItemStack getArrowStack() {
@@ -28,8 +31,10 @@ public class BombArrowEntity extends AbstractArrowEntity {
     //onEntityHit can also be used but will only trigger on mobs
     @Override
     protected void onImpact(RayTraceResult p_70227_1_) {
+
         BlockPos pos = new BlockPos(this.getPositionVec());
         Utils.createExplosion(this.getEntityWorld(), pos, 5);
         super.onImpact(p_70227_1_);
+
     }
 }
