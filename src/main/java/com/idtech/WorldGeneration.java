@@ -1,7 +1,10 @@
 package com.idtech;
 import com.google.common.collect.Lists;
 import com.idtech.block.BlockMod;
+import com.idtech.entity.ZomboEntity;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Items;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -23,8 +26,10 @@ import java.util.List;
 import java.util.stream.Stream;
 
 /**
- * World/Ore generation
- * @author afroraydude (Ray "Stitch" Thomas)
+ * World generation
+ * @author afroraydude
+ * Modified to work with mod, original code by ChampionAsh5357@GitHub
+ * https://championash5357.github.io/ChampionAsh5357/tutorial/minecraft/1.16.1/basic/ore_gen
  */
 public class WorldGeneration {
 
@@ -51,6 +56,10 @@ public class WorldGeneration {
         generateFeaturesInAllBiomes(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockMod.GEL_ORE_BLOCK.getDefaultState(), 10)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 64))));
     }
 
+    public static void spawnEntities() {
+        spawnMobsInAllBiomes(ZomboEntity.TYPE, EntityClassification.MONSTER, 100, 1, 4);
+    }
+
     protected static void generateFeatures(GenerationStage.Decoration stageIn, ConfiguredFeature<?, ?> featureIn, Biome... biomesIn) {
         for(Biome biome : biomesIn) biome.addFeature(stageIn, featureIn);
     }
@@ -66,5 +75,19 @@ public class WorldGeneration {
 
     private static Stream<Biome> getDifferentBiomes() {
         return ForgeRegistries.BIOMES.getValues().stream().filter(biome -> !biome.getRegistryName().getNamespace().equals(BaseMod.MODID));
+    }
+
+    /**
+     * Spawns Mobs/Creatures into all biomes
+     * @param entityType Entity
+     * @param classification Entity type (Creature/Monster/etc)
+     * @param weight The randomness weight
+     * @param min minimum entity count per group
+     * @param max maximum entity count per group
+     */
+    protected static void spawnMobsInAllBiomes(EntityType<?> entityType, EntityClassification classification, int weight, int min, int max) {
+        ForgeRegistries.BIOMES.getValues().stream().forEach(biome -> {
+            biome.getSpawns(classification).add(new Biome.SpawnListEntry(entityType, weight, min, max));
+        });
     }
 }
