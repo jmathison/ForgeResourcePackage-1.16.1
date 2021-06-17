@@ -27,9 +27,7 @@ import java.util.stream.Stream;
 
 /**
  * World generation
- * @author afroraydude
- * Modified to work with mod, original code by ChampionAsh5357@GitHub
- * https://championash5357.github.io/ChampionAsh5357/tutorial/minecraft/1.16.1/basic/ore_gen
+ * @author afroraydude Ray "Stitch" Thomas
  */
 public class WorldGeneration {
 
