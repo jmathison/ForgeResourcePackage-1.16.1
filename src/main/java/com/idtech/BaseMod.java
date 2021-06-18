@@ -113,6 +113,7 @@ public class BaseMod {
         BaseMod.LOGGER.info("Mod Setup Step");
         WorldMod.setupBiomes();
         WorldGeneration.applyBiomeFeatures();
+        WorldGeneration.spawnEntities();
     }
 
     /**

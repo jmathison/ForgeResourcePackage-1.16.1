@@ -1,6 +1,8 @@
 package com.idtech;
 import com.google.common.collect.Lists;
 import com.idtech.block.BlockMod;
+import com.idtech.entity.ExplodingPigEntity;
+import com.idtech.entity.ZomboBearEntity;
 import com.idtech.entity.ZomboEntity;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -27,7 +29,7 @@ import java.util.stream.Stream;
 
 /**
  * World generation
- * @author afroraydude Ray "Stitch" Thomas
+ * @author afroraydude (Ray "Stitch" Thomas)
  */
 public class WorldGeneration {
 
@@ -55,7 +57,9 @@ public class WorldGeneration {
     }
 
     public static void spawnEntities() {
-        spawnMobsInAllBiomes(ZomboEntity.TYPE, EntityClassification.MONSTER, 100, 1, 4);
+        spawnMobsInAllBiomes(ZomboEntity.TYPE, EntityClassification.MONSTER, 10, 1, 4);
+        spawnMobsInAllBiomes(ZomboBearEntity.TYPE, EntityClassification.MONSTER, 8, 1, 1);
+        spawnMobsInAllBiomes(ExplodingPigEntity.TYPE, EntityClassification.CREATURE, 10, 1, 4);
     }
 
     protected static void generateFeatures(GenerationStage.Decoration stageIn, ConfiguredFeature<?, ?> featureIn, Biome... biomesIn) {
@@ -67,6 +71,11 @@ public class WorldGeneration {
         biomes.filter(biome -> !list.contains(biome)).forEach(biome -> biome.addFeature(stageIn, featureIn));
     }
 
+    /**
+     * Generates features in all biomes, we use this for ore generation
+     * @param stageIn
+     * @param featureIn
+     */
     protected static void generateFeaturesInAllBiomes(GenerationStage.Decoration stageIn, ConfiguredFeature<?, ?> featureIn) {
         biomes.forEach(biome -> biome.addFeature(stageIn, featureIn));
     }
