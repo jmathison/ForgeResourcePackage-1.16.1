@@ -98,6 +98,15 @@ public class WorldGeneration {
         });
     }
 
+    /**
+     * Spawns Mobs/Creatures into specific biomes
+     * @param entityType Entity
+     * @param classification Entity type (Creature/Monster/etc)
+     * @param weight The randomness weight
+     * @param min minimum entity count per group
+     * @param max maximum entity count per group
+     * @param biomesIn List of biomes
+     */
     protected static void spawnMobs(EntityType<?> entityType, EntityClassification classification, int weight, int min, int max, List<Biome> biomesIn) {
         ForgeRegistries.BIOMES.getValues().stream().filter(biome -> biomesIn.contains(biome)).forEach(biome -> {
             biome.getSpawns(classification).add(new Biome.SpawnListEntry(entityType, weight, min, max));
