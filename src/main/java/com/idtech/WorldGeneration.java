@@ -58,8 +58,8 @@ public class WorldGeneration {
 
     public static void spawnEntities() {
         spawnMobsInAllBiomes(ZomboEntity.TYPE, EntityClassification.MONSTER, 10, 1, 4);
-        spawnMobsInAllBiomes(ZomboBearEntity.TYPE, EntityClassification.MONSTER, 8, 1, 1);
-        spawnMobsInAllBiomes(ExplodingPigEntity.TYPE, EntityClassification.CREATURE, 10, 1, 4);
+        spawnMobs(ZomboBearEntity.TYPE, EntityClassification.MONSTER, 10, 1, 1, Biomes.FROZEN_OCEAN, Biomes.SNOWY_TUNDRA, Biomes.SNOWY_MOUNTAINS, Biomes.ICE_SPIKES);
+        spawnMobsInAllBiomes(ExplodingPigEntity.TYPE, EntityClassification.CREATURE, 100, 1, 4);
     }
 
     protected static void generateFeatures(GenerationStage.Decoration stageIn, ConfiguredFeature<?, ?> featureIn, Biome... biomesIn) {
@@ -107,8 +107,9 @@ public class WorldGeneration {
      * @param max maximum entity count per group
      * @param biomesIn List of biomes
      */
-    protected static void spawnMobs(EntityType<?> entityType, EntityClassification classification, int weight, int min, int max, List<Biome> biomesIn) {
-        ForgeRegistries.BIOMES.getValues().stream().filter(biome -> biomesIn.contains(biome)).forEach(biome -> {
+    protected static void spawnMobs(EntityType<?> entityType, EntityClassification classification, int weight, int min, int max, Biome... biomesIn) {
+        List<Biome> list = Lists.newArrayList(biomesIn);
+        ForgeRegistries.BIOMES.getValues().stream().filter(biome -> list.contains(biome)).forEach(biome -> {
             biome.getSpawns(classification).add(new Biome.SpawnListEntry(entityType, weight, min, max));
         });
     }
