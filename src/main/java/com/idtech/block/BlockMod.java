@@ -37,6 +37,7 @@ public class BlockMod {
         event.getRegistry().register(DemoBlock.ITEM);
         event.getRegistry().register(NeatBlock.ITEM);
         event.getRegistry().register(RubberBlockCustomSound.ITEM);
+        event.getRegistry().register(TNTCannonBlock.ITEM);
 
 
     }
@@ -54,10 +55,11 @@ public class BlockMod {
         event.getRegistry().register(CreepingMoldBlock.INSTANCE);
         event.getRegistry().register(HotCoalsBlock.INSTANCE);
         event.getRegistry().register(FunNewBlock.INSTANCE);
-
         event.getRegistry().register(DemoBlock.INSTANCE);
         event.getRegistry().register(NeatBlock.INSTANCE);
         event.getRegistry().register(RubberBlockCustomSound.INSTANCE);
+        event.getRegistry().register(TNTCannonBlock.INSTANCE);
+
 
     }
 }
