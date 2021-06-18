@@ -97,4 +97,10 @@ public class WorldGeneration {
             biome.getSpawns(classification).add(new Biome.SpawnListEntry(entityType, weight, min, max));
         });
     }
+
+    protected static void spawnMobs(EntityType<?> entityType, EntityClassification classification, int weight, int min, int max, List<Biome> biomesIn) {
+        ForgeRegistries.BIOMES.getValues().stream().filter(biome -> biomesIn.contains(biome)).forEach(biome -> {
+            biome.getSpawns(classification).add(new Biome.SpawnListEntry(entityType, weight, min, max));
+        });
+    }
 }
