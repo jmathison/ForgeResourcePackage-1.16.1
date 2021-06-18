@@ -257,3 +257,87 @@ task generateBlockJSONs(type: BlockJSONTask){
     group = 'fg_runs'
     description = 'a gradle task to generate all block jsons from the blocks file.'
 }
+
+
+// This is the new Gradle task I made, maybe with a bit more experience with how all the files are store you could
+// Make this work with only one gradle task. Obviously it takes the vast majority of the original BlockJsons Gradle Task
+class BlockSidesJSONTask extends DefaultTask {
+    String MODID = 'examplemod'
+
+    def blockstatesJSON(name){
+
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("{\"variants\": {\"\": {\"model\": \"" + MODID + ":block/" + name + "\"}}}")
+
+        String s = builder.toString()
+
+        // create the folders if it does not exist.(otherwise it will throw exception)
+        File extraFolder = new File( "${project.projectDir}/src/main/resources/assets/"+MODID+"/blockstates")
+        if( !extraFolder.exists() ) {
+            extraFolder.mkdirs()
+        }
+        // create the file and write text to it.
+        new File("${project.projectDir}/src/main/resources/assets/"+MODID+"/blockstates/"+name+".json").text = s
+    }
+
+    def blockJSON(name){
+
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("{");
+        builder.append("\"parent\": \"minecraft:block/" + "bedrock" + "\",");
+
+        builder.append("\"textures\": {");
+        // What this does is that it generates a json that has different textures for each side, but only uses two
+        // textures. Obviously this can be extended to have more than just 2 textures, and in theory you could make
+        // each side of the block unique. For this case, the textures on the top and bottom must be called "[block_name]_top"
+        //and the texture on the sides "[block_name]_sides"
+        builder.append(" \"up\": \"" + MODID + ":block/" + name + "_top" + "\",\n");
+        builder.append(" \"down\": \"" + MODID + ":block/" + name + "_top" + "\",\n");
+        builder.append(" \"south\": \"" + MODID + ":block/" + name + "_sides" + "\",\n");
+        builder.append(" \"north\": \"" + MODID + ":block/" + name + "_sides" + "\",\n");
+        builder.append(" \"west\": \"" + MODID + ":block/" + name + "_sides" + "\",\n");
+        builder.append(" \"east\": \"" + MODID + ":block/" + name + "_sides" + "\"\n");
+        builder.append("}");
+        builder.append("}");
+
+        String s = builder.toString()
+
+        // create the folders if it does not exist.(otherwise it will throw exception)
+        File extraFolder = new File( "${project.projectDir}/src/main/resources/assets/"+MODID+"/models/block")
+        if( !extraFolder.exists() ) {
+            extraFolder.mkdirs()
+        }
+        // create the file and write text to it.
+        new File("${project.projectDir}/src/main/resources/assets/"+MODID+"/models/block/"+name+".json").text = s
+    }
+    def itemJSON(name){
+
+        String s = "{\"parent\": \"" + MODID + ":block/" + name + "\"}"
+
+        // create the folders if it does not exist.(otherwise it will throw exception)
+        File extraFolder = new File( "${project.projectDir}/src/main/resources/assets/"+MODID+"/models/item")
+        if( !extraFolder.exists() ) {
+            extraFolder.mkdirs()
+        }
+        // create the file and write text to it.
+        new File("${project.projectDir}/src/main/resources/assets/"+MODID+"/models/item/"+name+".json").text = s
+    }
+
+
+    @TaskAction
+    def greet() {
+        new File("${project.projectDir}/src/main/resources/generate/blocks").eachLine { line ->
+            blockstatesJSON(line)
+            blockJSON(line)
+            itemJSON(line)
+        }
+        // println greeting
+    }
+}
+
+task generateBlockSidesJSONs(type: BlockSidesJSONTask){
+    group = 'fg_runs'
+    description = 'a gradle task to generate a block from the blocks file with different textures on the sides than on the top and bottom.'
+}

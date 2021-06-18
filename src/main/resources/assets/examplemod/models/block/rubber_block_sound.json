@@ -1,1 +1,7 @@
-{"parent": "minecraft:block/cube_all","textures": { "all": "examplemod:block/rubber_block_sound"}}
+{"parent": "minecraft:block/bedrock","textures": { "up": "examplemod:block/rubber_block_sound_top",
+ "down": "examplemod:block/rubber_block_sound_top",
+ "south": "examplemod:block/rubber_block_sound_sides",
+ "north": "examplemod:block/rubber_block_sound_sides",
+ "west": "examplemod:block/rubber_block_sound_sides",
+ "east": "examplemod:block/rubber_block_sound_sides"
+}}
