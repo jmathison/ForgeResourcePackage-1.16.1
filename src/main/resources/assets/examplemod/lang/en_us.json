@@ -29,5 +29,6 @@
   "entity.examplemod.zombo": "Zombo",
   "entity.examplemod.zombo_bear": "Zombo Bear",
   "item.examplemod.zombo_egg": "Zombo Spawn Egg",
-  "item.examplemod.zombo_bear_egg": "Zombo Bear Spawn Egg"
+  "item.examplemod.zombo_bear_egg": "Zombo Bear Spawn Egg",
+  "itemGroup.examplemod":"Example Mod"
 }
