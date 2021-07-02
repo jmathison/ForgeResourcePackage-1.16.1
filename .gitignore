@@ -24,5 +24,4 @@ run
 # Files from Forge MDK
 forge*changelog.txt
 
-# test files
-/src/main/java/com/idtech/WorldGeneration.java
+
