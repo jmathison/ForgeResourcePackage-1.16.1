@@ -1,5 +1,6 @@
 package com.idtech.item;
 
+import com.idtech.ModTab;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -14,10 +15,10 @@ import org.lwjgl.system.CallbackI;
 public class ItemMod {
 
     //Basic Items
-    public static final Item STRUCTURE_GEL = ItemUtils.buildBasicItem("structuregel", ItemGroup.MISC);
+    public static final Item STRUCTURE_GEL = ItemUtils.buildBasicItem("structuregel", ModTab.INSTANCE);
 
 
-    public static final Item GEL_ORE = ItemUtils.buildBasicItem("gelore", ItemGroup.MISC);
+    public static final Item GEL_ORE = ItemUtils.buildBasicItem("gelore", ModTab.INSTANCE);
 
     //foods
     public static Food yummyFood = (new Food.Builder()).hunger(5).saturation(1.4f).effect(new EffectInstance(Effects.HEALTH_BOOST, 500, 1), 1.0f).effect(new EffectInstance(Effects.SPEED, 400, 1), 1.0F).setAlwaysEdible().build();

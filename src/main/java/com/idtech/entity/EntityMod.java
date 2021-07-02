@@ -1,8 +1,10 @@
 package com.idtech.entity;
 
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.Item;
+import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -21,6 +23,14 @@ public class EntityMod {
         event.getRegistry().register(ExplodingPigEntity.TYPE);
         GlobalEntityTypeAttributes.put(ExplodingPigEntity.TYPE, ExplodingPigEntity.setupAttributes().func_233813_a_());
 
+        EntityUtils.spawnMobs(ZomboEntity.TYPE, EntityClassification.MONSTER, 10, 1, 4);
+        EntityUtils.spawnMobsIn(ZomboBearEntity.TYPE, EntityClassification.MONSTER, 10, 1, 1, Biomes.FROZEN_OCEAN, Biomes.SNOWY_TUNDRA, Biomes.SNOWY_MOUNTAINS, Biomes.ICE_SPIKES);
+        EntityUtils.spawnMobs(ExplodingPigEntity.TYPE, EntityClassification.CREATURE, 100, 1, 4);
+
+        event.getRegistry().register(TestSheepEntity.TYPE);
+        GlobalEntityTypeAttributes.put(TestSheepEntity.TYPE, TestSheepEntity.func_234225_eI_().func_233813_a_());
+
+
     }
 
     @SubscribeEvent
@@ -29,6 +39,7 @@ public class EntityMod {
         event.getRegistry().register(ZomboEntity.EGG);
         event.getRegistry().register(ZomboBearEntity.EGG);
         event.getRegistry().register(ExplodingPigEntity.EGG);
+        event.getRegistry().register(TestSheepEntity.EGG);
 
     }
 
@@ -37,7 +48,7 @@ public class EntityMod {
         RenderingRegistry.registerEntityRenderingHandler(ZomboEntity.TYPE, ZomboRenderFactory.INSTANCE);
         RenderingRegistry.registerEntityRenderingHandler(ZomboBearEntity.TYPE, ZomboBearRenderFactory.INSTANCE);
         RenderingRegistry.registerEntityRenderingHandler(ExplodingPigEntity.TYPE, ExplodingPigRenderFactory.INSTANCE);
-
+        RenderingRegistry.registerEntityRenderingHandler(TestSheepEntity.TYPE, TestSheepRenderFactory.INSTANCE);
     }
 
 }
