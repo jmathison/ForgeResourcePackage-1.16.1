@@ -44,6 +44,7 @@ public class ItemMod {
         event.getRegistry().register(MagicAnimalTamingWand.INSTANCE);
         event.getRegistry().register(CrazyNewItem.INSTANCE);
         event.getRegistry().register(IncredibleNewItem.INSTANCE);
+        event.getRegistry().register(FireballWandItem.INSTANCE);
 
         // Tools
         event.getRegistry().register(GelAxeItem.INSTANCE);
