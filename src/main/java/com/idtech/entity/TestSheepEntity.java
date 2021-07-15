@@ -19,12 +19,13 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 
 public class TestSheepEntity extends SheepEntity {
-
     private int sheepTimer;
     private EatGrassGoal eatGrassGoal;
 
-    public static EntityType<TestSheepEntity> TYPE = (EntityType<TestSheepEntity>)
-            EntityType.Builder.create(TestSheepEntity::new, EntityClassification.CREATURE).build("sheepo").setRegistryName(BaseMod.MODID, "sheepo");
+    public static EntityType<TestSheepEntity> TYPE = (EntityType<TestSheepEntity>)EntityType.Builder.create(TestSheepEntity::new, EntityClassification.CREATURE).build("sheepo").setRegistryName(BaseMod.MODID, "sheepo");
+
+    //public static EntityType<TestSheepEntity> TYPE = (EntityType<TestSheepEntity>)EntityType.Builder.create(TestSheepEntity::new, EntityClassification.CREATURE).size(10,10).build("sheepo").setRegistryName(BaseMod.MODID, "sheepo");
+
     //EGG
     public static Item EGG = EntityUtils.buildEntitySpawnEgg(TYPE, 0xb00101, 0xacbf1f);
 
@@ -33,7 +34,7 @@ public class TestSheepEntity extends SheepEntity {
     public TestSheepEntity(EntityType type, World worldIn) { super(type, worldIn); }
 
     public static AttributeModifierMap.MutableAttribute func_234225_eI_() {
-        return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233818_a_, 8.0D).func_233815_a_(Attributes.field_233821_d_, (double)0.5F);
+        return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233818_a_, 8.0D).func_233815_a_(Attributes.field_233821_d_, 0.5D);
     }
 
     protected void registerGoals() {
@@ -52,4 +53,7 @@ public class TestSheepEntity extends SheepEntity {
         super.livingTick();
     }
 
+    public SheepEntity createChild(AgeableEntity ageable) {
+        return new TestSheepEntity(TYPE, world);
+    }
 }
