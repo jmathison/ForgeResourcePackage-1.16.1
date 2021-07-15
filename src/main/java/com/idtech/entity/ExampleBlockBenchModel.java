@@ -34,41 +34,42 @@ public class ExampleBlockBenchModel<T extends ExampleBlockBenchEntity> extends E
 
 		body = new ModelRenderer(this);
 		body.setRotationPoint(0.0F, 21.0F, 0.0F);
-		body.setTextureOffset(0, 0).addBox(-3.0F, -4.0F, -9.0F, 6.0F, 4.0F, 16.0F, 0.0F, false);
+		body.setTextureOffset(0, 7).addBox(-1.0F, -3.0F, 7.0F, 2.0F, 1.0F, 1.0F, 0.0F, false);
+		body.setTextureOffset(0, 0).addBox(-4.0F, -5.0F, -9.0F, 8.0F, 5.0F, 16.0F, 0.0F, false);
 
 		frontLegs = new ModelRenderer(this);
 		frontLegs.setRotationPoint(0.0F, 0.0F, 5.0F);
 		body.addChild(frontLegs);
-		
+
 
 		frontLeftLeg = new ModelRenderer(this);
 		frontLeftLeg.setRotationPoint(-2.0F, 0.0F, 0.0F);
 		frontLegs.addChild(frontLeftLeg);
-		frontLeftLeg.setTextureOffset(8, 7).addBox(-1.0F, 0.0F, 0.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
+		frontLeftLeg.setTextureOffset(10, 4).addBox(-1.0F, 0.0F, 0.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
 		frontLeftLeg.setTextureOffset(4, 4).addBox(-1.0F, 2.0F, 1.0F, 1.0F, 1.0F, 2.0F, 0.0F, false);
 
 		frontRightLeg = new ModelRenderer(this);
 		frontRightLeg.setRotationPoint(0.0F, 3.0F, -5.0F);
 		frontLegs.addChild(frontRightLeg);
 		frontRightLeg.setTextureOffset(4, 1).addBox(2.0F, -1.0F, 6.0F, 1.0F, 1.0F, 2.0F, 0.0F, false);
-		frontRightLeg.setTextureOffset(0, 10).addBox(2.0F, -3.0F, 5.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
+		frontRightLeg.setTextureOffset(10, 0).addBox(2.0F, -3.0F, 5.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
 
 		backLegs = new ModelRenderer(this);
 		backLegs.setRotationPoint(0.0F, 0.0F, -7.0F);
 		body.addChild(backLegs);
-		
 
-		backRightLeg = new ModelRenderer(this);
-		backRightLeg.setRotationPoint(-2.0F, 0.0F, 0.0F);
-		backLegs.addChild(backRightLeg);
-		backRightLeg.setTextureOffset(0, 6).addBox(-1.0F, 0.0F, -1.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
-		backRightLeg.setTextureOffset(0, 0).addBox(-1.0F, 2.0F, 0.0F, 1.0F, 1.0F, 2.0F, 0.0F, false);
 
 		backLeftLeg = new ModelRenderer(this);
-		backLeftLeg.setRotationPoint(2.0F, 0.0F, 0.0F);
+		backLeftLeg.setRotationPoint(-2.0F, 0.0F, 0.0F);
 		backLegs.addChild(backLeftLeg);
-		backLeftLeg.setTextureOffset(0, 3).addBox(0.0F, 2.0F, 0.0F, 1.0F, 1.0F, 2.0F, 0.0F, false);
-		backLeftLeg.setTextureOffset(4, 7).addBox(0.0F, 0.0F, -1.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
+		backLeftLeg.setTextureOffset(0, 9).addBox(-1.0F, 0.0F, -1.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
+		backLeftLeg.setTextureOffset(0, 3).addBox(-1.0F, 2.0F, 0.0F, 1.0F, 1.0F, 2.0F, 0.0F, false);
+
+		backRightLeg = new ModelRenderer(this);
+		backRightLeg.setRotationPoint(2.0F, 0.0F, 0.0F);
+		backLegs.addChild(backRightLeg);
+		backRightLeg.setTextureOffset(0, 0).addBox(0.0F, 2.0F, 0.0F, 1.0F, 1.0F, 2.0F, 0.0F, false);
+		backRightLeg.setTextureOffset(6, 7).addBox(0.0F, 0.0F, -1.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
 	}
 
 	/**
