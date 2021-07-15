@@ -34,6 +34,7 @@ public class ExampleBlockBenchModel<T extends ExampleBlockBenchEntity> extends E
 
 		body = new ModelRenderer(this);
 		body.setRotationPoint(0.0F, 21.0F, 0.0F);
+		setRotationAngle(body, -3.1416F, 0.0F, 3.1416F);
 		body.setTextureOffset(0, 7).addBox(-1.0F, -3.0F, 7.0F, 2.0F, 1.0F, 1.0F, 0.0F, false);
 		body.setTextureOffset(0, 0).addBox(-4.0F, -5.0F, -9.0F, 8.0F, 5.0F, 16.0F, 0.0F, false);
 
@@ -84,11 +85,19 @@ public class ExampleBlockBenchModel<T extends ExampleBlockBenchEntity> extends E
 	 */
 	@Override
 	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		//TODO: lighter rotation angles. I can see the tops of the legs.
+
 		this.backRightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 		this.backLeftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
 		this.frontRightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
 		this.frontLeftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
+	}
+
+	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+		modelRenderer.rotateAngleX = x;
+		modelRenderer.rotateAngleY = y;
+		modelRenderer.rotateAngleZ = z;
 	}
 
 	@Override
