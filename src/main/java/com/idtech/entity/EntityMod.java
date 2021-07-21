@@ -1,5 +1,11 @@
 package com.idtech.entity;
 
+import com.idtech.entity.projectile.CustomProjectileEntity;
+import com.idtech.entity.projectile.FlyBombEntity;
+import com.idtech.entity.projectile.TeleportArrowEntity;
+//import com.idtech.entity.projectile.TeleportArrowRenderFactory;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
@@ -14,6 +20,7 @@ public class EntityMod {
     @SubscribeEvent
     public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event){
 
+        // Living Entities
         event.getRegistry().register(ZomboEntity.TYPE);
         GlobalEntityTypeAttributes.put(ZomboEntity.TYPE, ZomboEntity.setupAttributes().func_233813_a_());
 
@@ -32,11 +39,17 @@ public class EntityMod {
         event.getRegistry().register(PoisonousZomboEntity.TYPE);
         GlobalEntityTypeAttributes.put(PoisonousZomboEntity.TYPE, ZomboEntity.setupAttributes().func_233813_a_());
 
+        // Entity Spawning
         EntityUtils.spawnMobs(ZomboEntity.TYPE, EntityClassification.MONSTER, 10, 1, 4);
         EntityUtils.spawnMobsIn(ZomboBearEntity.TYPE, EntityClassification.MONSTER, 10, 1, 1, Biomes.FROZEN_OCEAN, Biomes.SNOWY_TUNDRA, Biomes.SNOWY_MOUNTAINS, Biomes.ICE_SPIKES);
         EntityUtils.spawnMobs(ExplodingPigEntity.TYPE, EntityClassification.CREATURE, 10, 1, 4);
         EntityUtils.spawnMobs(ExampleBlockBenchEntity.TYPE, EntityClassification.CREATURE, 10, 1, 4);
         EntityUtils.spawnMobs(TestSheepEntity.TYPE, EntityClassification.CREATURE, 10, 1, 4);
+
+        // projectiles
+        event.getRegistry().register(CustomProjectileEntity.TYPE);
+        event.getRegistry().register(FlyBombEntity.TYPE);
+
     }
 
     @SubscribeEvent
@@ -57,6 +70,12 @@ public class EntityMod {
         RenderingRegistry.registerEntityRenderingHandler(ExplodingPigEntity.TYPE, ExplodingPigRenderFactory.INSTANCE);
         RenderingRegistry.registerEntityRenderingHandler(TestSheepEntity.TYPE, TestSheepRenderFactory.INSTANCE);
         RenderingRegistry.registerEntityRenderingHandler(ExampleBlockBenchEntity.TYPE, ExampleBlockBenchRenderFactory.INSTANCE);
+
+        // Projectiles
+        RenderingRegistry.registerEntityRenderingHandler(CustomProjectileEntity.TYPE, m -> new SpriteRenderer<>(m, Minecraft.getInstance().getItemRenderer()));
+        RenderingRegistry.registerEntityRenderingHandler(FlyBombEntity.TYPE, m -> new SpriteRenderer<>(m, Minecraft.getInstance().getItemRenderer()));
+
+
     }
 
 }

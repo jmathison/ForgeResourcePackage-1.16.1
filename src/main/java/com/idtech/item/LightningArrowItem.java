@@ -1,9 +1,8 @@
 package com.idtech.item;
 
-import com.idtech.entity.LightningArrowEntity;
+import com.idtech.entity.projectile.LightningArrowEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;

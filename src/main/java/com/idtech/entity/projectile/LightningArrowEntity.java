@@ -1,5 +1,6 @@
-package com.idtech.entity;
+package com.idtech.entity.projectile;
 
+import com.google.common.collect.Sets;
 import com.idtech.Utils;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -7,17 +8,19 @@ import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.potion.PotionUtils;
+import net.minecraft.potion.Potions;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class BombArrowEntity extends AbstractArrowEntity {
+public class LightningArrowEntity extends AbstractArrowEntity {
 
     //constructor for a world and shooter
-    public BombArrowEntity(World world, LivingEntity livingEntity) {
+    public LightningArrowEntity(World world, LivingEntity livingEntity) {
         super(EntityType.ARROW, livingEntity, world);
     }
-    public BombArrowEntity(World world) {
+    public LightningArrowEntity(World world) {
         super(EntityType.ARROW, world);
     }
 
@@ -26,15 +29,14 @@ public class BombArrowEntity extends AbstractArrowEntity {
         return new ItemStack(Items.ARROW);
     }
 
-    //this function is called when the arrow impacts an entity or surface
-    //this is where a custom effect can be added
-    //onEntityHit can also be used but will only trigger on mobs
+    // This method decides what the arrow should do on impact - anything you put
+    // here will happen when the arrow lands
     @Override
     protected void onImpact(RayTraceResult p_70227_1_) {
 
         BlockPos pos = new BlockPos(this.getPositionVec());
-        Utils.createExplosion(this.getEntityWorld(), pos, 5);
-        super.onImpact(p_70227_1_);
+        Utils.strikeLightning(this.getEntityWorld(), pos);
 
+        super.onImpact(p_70227_1_);
     }
 }

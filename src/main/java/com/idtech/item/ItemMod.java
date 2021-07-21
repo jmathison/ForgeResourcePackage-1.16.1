@@ -67,6 +67,14 @@ public class ItemMod {
         // Arrows
         event.getRegistry().register(LightningArrowItem.INSTANCE);
         event.getRegistry().register(BombArrowItem.INSTANCE);
+        event.getRegistry().register(TeleportArrowItem.INSTANCE);
+
+        //Custom Bow
+        event.getRegistry().register(TeleportBowItem.INSTANCE);
+
+        // Projectiles
+        event.getRegistry().register(CustomProjectileItem.INSTANCE);
+        event.getRegistry().register(FlyBombItem.INSTANCE);
 
     }
 }
