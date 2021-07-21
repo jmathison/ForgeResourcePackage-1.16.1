@@ -112,7 +112,6 @@ public class BaseMod {
         // Put biome manager registry blocks here.
         BaseMod.LOGGER.info("Mod Setup Step");
         WorldMod.setupBiomes();
-        WorldMod.registerBiomeFeatures();
     }
 
     /**

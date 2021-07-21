@@ -23,16 +23,4 @@ public class WorldMod {
         BiomeManager.addSpawnBiome(ObsidianHillsBiome.INSTANCE);
 
     }
-
-    public static void registerBiomeFeatures() {
-        // vein size 10, count per generation 20, max y level 64
-        // modify above numbers to suit your needs
-        // this will only work on newly generated chunks, so best way to test is to make a new world or to teleport FAR FAR AWAY in your current world
-        // Does not spawn in Nether or end
-        WorldUtils.generateBiomeFeatures(GenerationStage.Decoration.UNDERGROUND_ORES,
-                Feature.ORE.withConfiguration(
-                        new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockMod.GEL_ORE_BLOCK.getDefaultState(), 10))
-                        .withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 64))),
-                true, false, false);
-    }
 }

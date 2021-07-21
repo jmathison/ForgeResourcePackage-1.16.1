@@ -23,14 +23,20 @@ public class EntityMod {
         event.getRegistry().register(ExplodingPigEntity.TYPE);
         GlobalEntityTypeAttributes.put(ExplodingPigEntity.TYPE, ExplodingPigEntity.setupAttributes().func_233813_a_());
 
-        EntityUtils.spawnMobs(ZomboEntity.TYPE, EntityClassification.MONSTER, 10, 1, 4);
-        EntityUtils.spawnMobsIn(ZomboBearEntity.TYPE, EntityClassification.MONSTER, 10, 1, 1, Biomes.FROZEN_OCEAN, Biomes.SNOWY_TUNDRA, Biomes.SNOWY_MOUNTAINS, Biomes.ICE_SPIKES);
-        EntityUtils.spawnMobs(ExplodingPigEntity.TYPE, EntityClassification.CREATURE, 100, 1, 4);
-
         event.getRegistry().register(TestSheepEntity.TYPE);
         GlobalEntityTypeAttributes.put(TestSheepEntity.TYPE, TestSheepEntity.func_234225_eI_().func_233813_a_());
 
+        event.getRegistry().register(ExampleBlockBenchEntity.TYPE);
+        GlobalEntityTypeAttributes.put(ExampleBlockBenchEntity.TYPE, ExampleBlockBenchEntity.setupAttributes().func_233813_a_());
 
+        event.getRegistry().register(PoisonousZomboEntity.TYPE);
+        GlobalEntityTypeAttributes.put(PoisonousZomboEntity.TYPE, ZomboEntity.setupAttributes().func_233813_a_());
+
+        EntityUtils.spawnMobs(ZomboEntity.TYPE, EntityClassification.MONSTER, 10, 1, 4);
+        EntityUtils.spawnMobsIn(ZomboBearEntity.TYPE, EntityClassification.MONSTER, 10, 1, 1, Biomes.FROZEN_OCEAN, Biomes.SNOWY_TUNDRA, Biomes.SNOWY_MOUNTAINS, Biomes.ICE_SPIKES);
+        EntityUtils.spawnMobs(ExplodingPigEntity.TYPE, EntityClassification.CREATURE, 10, 1, 4);
+        EntityUtils.spawnMobs(ExampleBlockBenchEntity.TYPE, EntityClassification.CREATURE, 10, 1, 4);
+        EntityUtils.spawnMobs(TestSheepEntity.TYPE, EntityClassification.CREATURE, 10, 1, 4);
     }
 
     @SubscribeEvent
@@ -40,15 +46,17 @@ public class EntityMod {
         event.getRegistry().register(ZomboBearEntity.EGG);
         event.getRegistry().register(ExplodingPigEntity.EGG);
         event.getRegistry().register(TestSheepEntity.EGG);
-
+        event.getRegistry().register(ExampleBlockBenchEntity.EGG);
+        event.getRegistry().register(PoisonousZomboEntity.EGG);
     }
 
     public static void entityRenderers(){
-
+        RenderingRegistry.registerEntityRenderingHandler(PoisonousZomboEntity.TYPE, ZomboRenderFactory.INSTANCE);
         RenderingRegistry.registerEntityRenderingHandler(ZomboEntity.TYPE, ZomboRenderFactory.INSTANCE);
         RenderingRegistry.registerEntityRenderingHandler(ZomboBearEntity.TYPE, ZomboBearRenderFactory.INSTANCE);
         RenderingRegistry.registerEntityRenderingHandler(ExplodingPigEntity.TYPE, ExplodingPigRenderFactory.INSTANCE);
         RenderingRegistry.registerEntityRenderingHandler(TestSheepEntity.TYPE, TestSheepRenderFactory.INSTANCE);
+        RenderingRegistry.registerEntityRenderingHandler(ExampleBlockBenchEntity.TYPE, ExampleBlockBenchRenderFactory.INSTANCE);
     }
 
 }
