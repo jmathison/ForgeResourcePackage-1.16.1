@@ -33,5 +33,8 @@
   "entity.examplemod.zombo_bear": "Zombo Bear",
   "item.examplemod.zombo_egg": "Zombo Spawn Egg",
   "item.examplemod.zombo_bear_egg": "Zombo Bear Spawn Egg",
+  "enchantment.examplemod.sky_strike": "Sky Strike",
+  "enchantment.examplemod.wither_touch": "Wither Touch",
+  "enchantment.examplemod.ice_aspect": "Ice Aspect",
   "itemGroup.examplemod":"Example Mod"
 }
