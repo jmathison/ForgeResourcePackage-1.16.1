@@ -1,10 +1,12 @@
 package com.idtech;
 
 import com.idtech.block.*;
+import com.idtech.enchantment.EnchantmentMod;
 import com.idtech.entity.*;
 import com.idtech.item.*;
 import com.idtech.world.WorldMod;
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.world.biome.Biome;
@@ -58,6 +60,20 @@ public class BaseMod {
         BlockMod.registerBlockItems(event);
         EntityMod.registerEntityEggs(event);
 
+
+    }
+
+    /**
+     * Registers enchantments during mod setup
+     * @param event RegistryEvent to access the enchantment registry
+     */
+    @SubscribeEvent
+    public static void registerEnchantments(final RegistryEvent.Register<Enchantment> event){
+        LOGGER.info("Registering Enchantments");
+        // Add enchantment registry calls here.
+        // event.getRegistry.register(<enchantment variable>)
+
+        EnchantmentMod.registerEnchantments(event);
 
     }
 
